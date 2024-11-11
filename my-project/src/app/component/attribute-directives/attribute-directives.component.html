@@ -1,0 +1,28 @@
+<h2>Attribute Directives</h2>
+
+<!--ngClass Example-->
+<h4>ngClass</h4>
+<ul *ngFor="let group of person">
+    <li>
+        {{group.country}}
+    </li>
+    <ul *ngFor="let pobj of group.people">
+    <li [ngClass]="{
+        'text-success':pobj.gender==='female',
+        'text-primary':pobj.gender==='male'
+    }">
+        {{pobj.name}} ({{pobj.gender}})
+    </li>
+</ul>
+
+<!--ngStyle Example-->
+<h4>ngStyle</h4>
+<ul *ngFor="let group of person">
+    <li [ngStyle]="{'color':getColor(group)}">
+        {{group.country}}
+    </li>
+    <ul *ngFor="let pobj of group.people">
+    <li>
+        {{pobj.name}} ({{pobj.gender}})
+    </li>
+</ul>

@@ -1,0 +1,27 @@
+<h2>Structural Directives</h2>
+
+<!-- ngFor Example -->
+<h4>NgFor</h4>
+<ul *ngFor="let group of person">
+    <li>
+        {{group.country}}
+    </li>
+    <ul>
+        <li *ngFor="let pobj of group.people">
+            {{pobj.name}}
+        </li>
+    </ul>
+</ul>
+
+<!--ngIf Example-->
+<h4>ngIf</h4>
+<ul *ngFor="let group of person">
+    <li>
+        {{group.country}}
+    </li>
+    <ul *ngFor="let pobj of group.people">
+        <li *ngIf="pobj.age<=30">
+            {{pobj.name}} ({{pobj.age}})
+        </li>
+    </ul>
+</ul>
