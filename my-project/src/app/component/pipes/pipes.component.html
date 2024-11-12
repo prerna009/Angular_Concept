@@ -1,0 +1,51 @@
+<h1>Built-in Pipes</h1>
+<div>
+    <h3>Using Currency Pipe</h3>
+    <p>Price : {{price | currency}}</p>
+    <p>Price : {{price | currency : 'EUR' : 'symbol' : '4.2-2'}}</p>
+    <p>Price : {{price | currency : 'INR' : 'symbol' : '4.2-2'}}</p>
+</div>
+<div>
+    <h3>Using Date Pipe</h3>
+    <p>Current Date : {{currentDate | date}}</p>
+    <p>Current Date : {{currentDate | date : 'fullDate'}}</p>
+    <p>Current Date : {{currentDate | date : 'shortDate'}}</p>
+    <p>Current Date : {{currentDate | date : 'shortTime'}}</p>
+    <p>Current Date : {{currentDate | date : 'fullTime'}}</p>
+    <p>Current Date : {{currentDate | date : 'full'}}</p>
+    <p>Current Date : {{currentDate | date : 'short'}}</p>
+    <p>Current Date : {{currentDate | date : 'a'}}</p>
+    <p>Current Date : {{currentDate | date : 'z'}}</p>
+</div>
+<div>
+    <h3>Using JSON Pipe</h3>
+    <pre>JSON Data : {{person | json}}</pre>
+    <pre>JSON DATA : {{pobj | json}}</pre>
+</div>
+<div>
+    <h3>Using LowerCase & UpperCase Pipe</h3>
+    <p>Original String : {{myString}}</p>
+    <p>LowerCase String : {{myString | lowercase}}</p>
+    <p>UpperCase String : {{myString | uppercase}}</p>
+</div>
+<div>
+    <h3>Using Percent Pipe</h3>
+    <p>Original number : {{myNumber}}</p>
+    <p>Percentage value : {{myNumber | percent}}</p>
+</div>
+<div>
+    <h3>Using Slice Pipe</h3>
+    <p>Original Array : {{myArray}}</p>
+    <p>Sliced Array : {{myArray | slice:1:4}}</p>
+    <p>Sliced String : {{myString | slice:3:20}}</p>
+</div>
+<div>
+    <h3>Using TitleCase Pipe</h3>
+    <p>Transformed String : {{myString | titlecase}}</p>
+</div>
+<div>
+    <h3>Using AsyncPipe with Observable</h3>
+    <p>{{myObservable | async}}</p>
+    <h3>Using AsyncPipe with Promise</h3>
+    <p>{{myPromise | async}}</p>
+</div>
