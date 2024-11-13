@@ -49,3 +49,27 @@
     <h3>Using AsyncPipe with Promise</h3>
     <p>{{myPromise | async}}</p>
 </div>
+
+<h1>Custom Pipes</h1>
+<div>
+    <h3>Using ReversePipe</h3>
+    <p>Reverse string : {{word | reverse}}</p>
+</div>
+<div>
+    <h3>Using FilterByLength Pipe</h3>
+    <ul>
+        <li *ngFor="let value of values | filterByLength:4">{{value}}</li>
+    </ul>
+</div>
+<!-- Create a custom pipe that will add '...' 
+after a sentence when the number of characters in the sentence exceeds 20 characters. -->
+<div>
+    <h3>Using Characters Pipe</h3>
+    <p>{{character | characters}}</p>
+</div>
+
+<!--Create a chaining pipe-->
+<div>
+    <h3>Chaining pipe using date and uppercase pipe</h3>
+    <p>Long Date (uppercase) : {{currentDate | date:'fullDate' | uppercase}}</p>
+</div>

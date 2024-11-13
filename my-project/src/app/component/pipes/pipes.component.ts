@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component} from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { ReversePipe } from './reverse.pipe';
+import { FilterByLengthPipe } from './filter-by-length.pipe';
+import { CharactersPipe } from './characters.pipe';
 
 @Component({
   selector: 'app-pipes',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,ReversePipe,FilterByLengthPipe,CharactersPipe],
   templateUrl: './pipes.component.html',
   styleUrl: './pipes.component.css'
 })
@@ -43,4 +46,9 @@ export class PipesComponent {
       ]
     }
   ];
+
+  //Custom Pipe
+  word:string='Namaste JavaScript!';
+  values:string[]=['apple','banana','orange','grapes','mango','dates'];
+  character:string='This is a angular application.';
 }
