@@ -1,0 +1,11 @@
+<div *ngIf="employees.length>0; else noEmployees">
+<h2>Employee List</h2>
+<ul *ngFor="let employee of employees">
+    <li>{{employee.id}}</li>
+    <button (click)="goToEmployeeDetail(employee.id)">View details</button>
+</ul>
+</div>
+
+<ng-template #noEmployees>
+    <p>No employees available.</p>
+</ng-template>
