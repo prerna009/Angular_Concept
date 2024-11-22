@@ -19,6 +19,7 @@ export class AppComponent {
 
   counter:number=0;
   incrementCounter(){
+    debugger
     this.counter++;
   }
 }

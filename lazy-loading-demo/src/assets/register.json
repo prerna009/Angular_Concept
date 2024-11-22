@@ -1,0 +1,16 @@
+{
+  "register": [
+    {
+      "id": "d851",
+      "name": "Prerna Gupta",
+      "email": "prernag048@gmail.com",
+      "phoneNo": "8765787788",
+      "address": {
+        "street": "flank toad",
+        "city": "mumbai",
+        "state": "maharasghtra",
+        "postalCode": "400037"
+      }
+    }
+  ]
+}

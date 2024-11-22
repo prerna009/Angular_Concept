@@ -12,15 +12,6 @@ export class EmployeeService {
 
   constructor(private http:HttpClient) { }
 
-  // getEmployees():Observable<Employee[]>{
-  //   return this.http.get<Employee[]>(this._url).pipe(
-  //     catchError((error)=>{
-  //       console.error('Error fetching employees data : ',error);
-  //       return throwError(()=>new Error('Something went wrong, please try again later.'));
-  //     })
-  //   );
-  // }
-
   getEmployees():Observable<any[]>{
     return this.http.get<any[]>(this._url);
   }

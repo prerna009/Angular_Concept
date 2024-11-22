@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "3065",
+      "name": "Prerna Gupta",
+      "email": "prernag048@gmail.com",
+      "phoneno": "8578989888",
+      "address": {
+        "street": "flank road",
+        "city": "mumbai",
+        "state": "maharashtra",
+        "postalCode": "400037"
+      },
+      "hobbies": "Dancing",
+      "gender": "female",
+      "subscribe": true
+    }
+  ]
+}

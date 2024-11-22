@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <h2>Registration Form</h2>
+    <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Name : </label>
+            <input formControlName="name" id="name" name="name" class="form-control"/>
+        </div>
+        <div *ngIf="regForm.get('name')?.touched && regForm.get('name')?.invalid">
+            <small class="text-danger">Name is required</small>
+        </div>
+        <div class="form-group">
+            <label for="email">Email : </label>
+            <input id="email" formControlName="email" class="form-control" />
+        </div>
+        <div *ngIf="regForm.get('email')?.touched && regForm.get('email')?.invalid">
+            <small class="text-danger" *ngIf="regForm.get('email')?.hasError('required')">Email is required</small>
+            <small class="text-danger" *ngIf="regForm.get('email')?.hasError('pattern')">Email ID is invalid.</small>
+        </div>
+        <div class="form-group">
+            <label for="phoneNo">Phone Number : </label>
+            <input id="phoneNo" formControlName="phoneNo" class="form-control" maxlength="10"/>
+        </div>
+        <div *ngIf="regForm.get('phoneNo')?.touched && regForm.get('phoneNo')?.invalid">
+            <small class="text-danger" *ngIf="regForm.get('phoneNo')?.hasError('required')">Phone number is required</small>
+            <small class="text-danger" *ngIf="regForm.get('phoneNo')?.hasError('pattern')">Phone number must be 10 digits.</small>
+        </div>
+        <div formGroupName="address">
+            <div class="form-group">
+                <label>Street : </label>
+                <input formControlName="street" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>City : </label>
+                <input formControlName="city" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>State : </label>
+                <input formControlName="state" type="text" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Postal Code : </label>
+                <input formControlName="postalCode" type="text" class="form-control" />
+            </div>
+            <div *ngIf="regForm.get('address.postalCode')?.touched && regForm.get('address.postalCode')?.invalid">
+                <small class="text-danger" *ngIf="regForm.get('address.postalCode')?.hasError('required')">Postal Code is required</small>
+                <small class="text-danger" *ngIf="regForm.get('address.postalCode')?.hasError('pattern')">Postal Code must be 6 digits.</small>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="regForm.invalid">Register</button>
+    </form>
+</div>
