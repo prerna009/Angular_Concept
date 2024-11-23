@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <table class="table" style="border: 2px solid black;">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phoneNo}}</td>
+                <td>
+                    <button (click)="editUser(user)" class="btn btn-primary btn-sm">Edit</button>
+                    <button (click)="deleteUser(user)" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<ng-template #noUsers>
+    <p>No users available.</p>
+</ng-template>

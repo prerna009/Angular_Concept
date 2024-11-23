@@ -17,7 +17,23 @@ export class UserServiceService {
     return this.http.post<any>(this._url,user);
   }
 
-  register(user:User){
+  register(user:User):Observable<any>{
     return this.http.post<any>(this._url1,user);
+  }
+
+  getUser():Observable<any[]>{
+    return this.http.get<any[]>(this._url1);
+  }
+
+  getUserById(id: number): Observable<any> {
+    return this.http.get<any>(`${this._url1}/${id}`);
+  }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete<any>(`${this._url1}/${id}`);
+  }
+
+  updateUser(user: any): Observable<any> {
+    return this.http.put<any>(`${this._url1}/${user.id}`, user);
   }
 }

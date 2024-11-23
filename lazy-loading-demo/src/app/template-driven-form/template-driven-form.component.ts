@@ -10,6 +10,7 @@ import { error } from 'console';
 })
 export class TemplateDrivenFormComponent {
   userModel:User = new User(
+    0,
     '',
     '',
     0,

@@ -1,14 +1,26 @@
 {
   "register": [
     {
-      "id": "d851",
+      "id": "ae18",
+      "name": "Sandhaya",
+      "email": "sandy@gmail.com",
+      "phoneNo": "8765356544",
+      "address": {
+        "street": "sion ",
+        "city": "mumbai",
+        "state": "maharashtra",
+        "postalCode": "400022"
+      }
+    },
+    {
+      "id": "6066",
       "name": "Prerna Gupta",
       "email": "prernag048@gmail.com",
       "phoneNo": "8765787788",
       "address": {
-        "street": "flank toad",
+        "street": "sion",
         "city": "mumbai",
-        "state": "maharasghtra",
+        "state": "maharashtra",
         "postalCode": "400037"
       }
     }

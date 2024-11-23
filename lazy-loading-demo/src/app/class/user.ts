@@ -1,8 +1,9 @@
 export class User{
     constructor(
+        public id:number,
         public name:string,
         public email:string,
-        public phoneno:number,
+        public phoneNo:number,
         public address: {
             street: string;
             city: string;

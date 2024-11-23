@@ -9,12 +9,16 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { UserServiceService } from './service/user-service.service';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { UserDisplayComponent } from './user-display/user-display.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateDrivenFormComponent,
-    ReactiveFormComponent
+    ReactiveFormComponent,
+    UserDisplayComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
