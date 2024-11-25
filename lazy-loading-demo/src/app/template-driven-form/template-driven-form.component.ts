@@ -10,7 +10,7 @@ import { error } from 'console';
 })
 export class TemplateDrivenFormComponent {
   userModel:User = new User(
-    0,
+    '',
     '',
     '',
     0,
@@ -30,13 +30,13 @@ export class TemplateDrivenFormComponent {
   constructor(private userService:UserServiceService){};
 
   onSubmit(){
-    this.userService.save(this.userModel).subscribe({
-      next:(data)=>{
-        console.log('Success!',data);
-      },
-      error:(error)=>{
-        console.log('Error to save the data : ',error);
-      }
-    });
+    // this.userService.save(this.userModel).subscribe({
+    //   next:(data)=>{
+    //     console.log('Success!',data);
+    //   },
+    //   error:(error)=>{
+    //     console.log('Error to save the data : ',error);
+    //   }
+    // });
   }
 }

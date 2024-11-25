@@ -35,7 +35,7 @@ export class UserDisplayComponent implements OnInit{
       this.userService.deleteUser(user.id).subscribe({
         next: () => {
           alert('User deleted successfully!');
-          this.users = this.users.filter(u => u.id !== user.id);
+          this.users = this.users.filter((u)=> u.id !== user.id);
         },
         error: (error) => {
           console.log('Error deleting user:', error);

@@ -9,10 +9,11 @@ const routes: Routes = [
   // {path:'a',loadChildren:()=>import('./modulea/modulea.module').then(m=>m.ModuleaModule)},
   // {path:'b',loadChildren:()=>import('./moduleb/moduleb.module').then(m=>m.ModulebModule)},
   // { path: '**', redirectTo: 'modulea' },
-  { path: 'home', component: ReactiveFormComponent },
-  { path: 'register', component: UserDisplayComponent },
+  { path: 'register', component: ReactiveFormComponent },
+  { path: 'display', component: UserDisplayComponent },
   {path:'edit/:id',component:EditComponent},
-  { path: '', redirectTo: '/display', pathMatch: 'full' },
+  { path: '', redirectTo: 'register',pathMatch:'full'}
+
 ];
 
 @NgModule({

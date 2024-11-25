@@ -29,17 +29,15 @@ export class ReactiveFormComponent {
 
   onSubmit() {
     if (this.regForm.valid) {
-      this.userService.register(this.regForm.value).subscribe({
+      this.userService.registerUser(this.regForm.value).subscribe({
         next:(response)=>{
-          console.log('Success!',response);
-          this.router.navigate(['/register']);
+          alert('User registered successfully!');
+          this.router.navigate(['/display']);
         },
         error:(error)=>{
-          console.log('Error saving the register data : ',error);
+          console.log('Error registering user : ',error);
         }
       });
-    } else {
-      console.log('Form is invalid');
     }
   }
 }

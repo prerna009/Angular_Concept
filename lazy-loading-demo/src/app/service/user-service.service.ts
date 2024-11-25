@@ -7,33 +7,33 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserServiceService {
-  private _url:string='http://localhost:3000/users';
+  //private _url:string='http://localhost:3000/users';
 
   private _url1:string='http://localhost:3000/register';
 
   constructor(private http:HttpClient) { }
 
-  save(user:User):Observable<any>{
-    return this.http.post<any>(this._url,user);
+  // save(user:User):Observable<any>{
+  //   return this.http.post<any>(this._url,user);
+  // }
+
+  registerUser(user:User):Observable<User>{
+    return this.http.post<User>(this._url1,user);
   }
 
-  register(user:User):Observable<any>{
-    return this.http.post<any>(this._url1,user);
+  getUser():Observable<User[]>{
+    return this.http.get<User[]>(this._url1);
   }
 
-  getUser():Observable<any[]>{
-    return this.http.get<any[]>(this._url1);
+  getUserById(id: string): Observable<User> {
+    return this.http.get<User>(`${this._url1}/${id}`);
   }
 
-  getUserById(id: number): Observable<any> {
-    return this.http.get<any>(`${this._url1}/${id}`);
+  deleteUser(id: string): Observable<User> {
+    return this.http.delete<User>(`${this._url1}/${id}`);
   }
 
-  deleteUser(id: number): Observable<any> {
-    return this.http.delete<any>(`${this._url1}/${id}`);
-  }
-
-  updateUser(user: any): Observable<any> {
-    return this.http.put<any>(`${this._url1}/${user.id}`, user);
+  updateUser(user: User): Observable<User> {
+    return this.http.put<User>(`${this._url1}/${user.id}`, user);
   }
 }

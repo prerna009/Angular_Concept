@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../service/user-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../class/user';
 
 @Component({
   selector: 'app-edit',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EditComponent implements OnInit{
   editForm:FormGroup;
-  userId!: number;
+  userId!: string;
 
   constructor(private userService:UserServiceService,private fb:FormBuilder,
     private router:Router,private route:ActivatedRoute){
@@ -22,9 +23,9 @@ export class EditComponent implements OnInit{
     }
 
   ngOnInit(): void {
-    //this.userId = +this.route.snapshot.paramMap.get('id')!;
-    this.userService.getUser().subscribe({
-      next: (user:any) => {
+    this.userId = this.route.snapshot.paramMap.get('id')!;
+    this.userService.getUserById(this.userId).subscribe({
+      next: (user:User) => {
         this.editForm.patchValue({
           name: user.name,
           email: user.email,
@@ -43,8 +44,8 @@ export class EditComponent implements OnInit{
 
       this.userService.updateUser(updatedUser).subscribe({
         next: (response) => {
-          console.log('User updated successfully:', response);
-          this.router.navigate(['/user']); 
+          console.log('User updated successfully:',response);
+          this.router.navigate(['/display']); 
         },
         error: (error) => {
           console.error('Error updating user:', error);
