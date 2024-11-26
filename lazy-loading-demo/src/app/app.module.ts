@@ -11,6 +11,7 @@ import { UserServiceService } from './service/user-service.service';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { UserDisplayComponent } from './user-display/user-display.component';
 import { EditComponent } from './edit/edit.component';
+import { OperatorComponent } from './operator/operator.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditComponent } from './edit/edit.component';
     TemplateDrivenFormComponent,
     ReactiveFormComponent,
     UserDisplayComponent,
-    EditComponent
+    EditComponent,
+    OperatorComponent
   ],
   imports: [
     BrowserModule,
