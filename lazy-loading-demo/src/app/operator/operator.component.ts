@@ -1,19 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { debounceTime, delay, map, of, switchMap, toArray } from 'rxjs';
+import { debounceTime, delay, from,map, of, switchMap, toArray } from 'rxjs';
 
 @Component({
   selector: 'app-operator',
   templateUrl: './operator.component.html',
   styleUrl: './operator.component.css'
 })
-export class OperatorComponent {
+export class OperatorComponent{
+  constructor(private http: HttpClient) { }
+
   numbers$ = of(1, 2, 3, 4).pipe(
     map(num => num * 2),
     toArray()
   );  // output in html
 
+  fruits=from(['apple','banana','orange']).pipe(map(value=>value),toArray());
+  
   numbers = of(1, 2, 3, 4, 5).pipe(map(num => num * 2)).subscribe({
     next: result => {
       console.log(result);
@@ -31,6 +35,4 @@ export class OperatorComponent {
     switchMap(query => this.http.get(`http://localhost:3000/register?q=${query}`)),
     toArray()
   );
-
-  constructor(private http: HttpClient) { }
 }

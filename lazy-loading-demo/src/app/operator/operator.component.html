@@ -8,3 +8,7 @@
     {{ result }}
   </li>
 </ul>
+
+<div *ngFor="let fruit of fruits | async">
+  {{fruit}}
+</div>
