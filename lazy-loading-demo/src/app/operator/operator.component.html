@@ -1,14 +1,28 @@
+<h5>Numbers :</h5>
 <div *ngFor="let number of numbers$ | async">
-    {{ number }}
-</div>
+  {{ number }}
+</div><br>
 
-<input [formControl]="searchControl" placeholder="Search...">
-<ul>
-  <li *ngFor="let result of results$ | async">
-    {{ result }}
-  </li>
-</ul>
+<h5>Even Number :</h5>
+<div *ngFor="let filter of filter$ | async">
+  {{filter}}
+</div>
 
 <div *ngFor="let fruit of fruits | async">
   {{fruit}}
+</div>
+
+<div>
+  <h2>User Search</h2>
+  <input [formControl]="searchControl" placeholder="Search for users..." />
+
+  <div *ngIf="(filteredUsers$ | async)?.length === 0">
+    No users found.
+  </div>
+
+  <ul>
+    <li *ngFor="let user of filteredUsers$ | async">
+      {{ user.name }} - {{ user.age }} years old
+    </li>
+  </ul>
 </div>
