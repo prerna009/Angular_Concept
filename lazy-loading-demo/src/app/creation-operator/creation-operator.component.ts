@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { concatMap, delay, from, fromEvent, interval, map, mergeMap, of, switchMap, take, timer } from 'rxjs';
+import { BehaviorSubject, concatMap, debounceTime, delay, distinct, filter, from, fromEvent, interval, map, mergeMap, of, skip, Subject, switchMap, take, takeUntil, throttleTime, timer } from 'rxjs';
 
 @Component({
   selector: 'app-creation-operator',
@@ -19,6 +19,11 @@ export class CreationOperatorComponent implements OnInit {
   results: string = '';
   latestValue:string='';
   concatValue:string='';
+  filter$:string='';
+  take$:string='';
+  takeUntil$:string='';
+  skip$:string='';
+  distinct$:string='';
 
   ngOnInit(): void {
     this.ofOperator();
@@ -29,6 +34,11 @@ export class CreationOperatorComponent implements OnInit {
     this.mergeMapOperator();
     this.switchMapOperator();
     this.concatMapOperator();
+    this.filterOperator();
+    this.takeOperator();
+    this.takeUntilOperator();
+    this.skipOperator();
+    this.distinctOperator();
   }
 
   ofOperator(): void {
@@ -84,9 +94,9 @@ export class CreationOperatorComponent implements OnInit {
   }
 
   switchMapOperator():void{
-    const outer$=interval(2000).pipe(take(5)); //emits the value 0...4 every 2s
+    const outer$=interval(200).pipe(take(5)); //emits the value 0...4 every 2ms
     outer$.pipe(
-      switchMap((outerValue)=>of(`Inner Observable for ${outerValue}`).pipe(delay(1000)))
+      switchMap((outerValue)=>of(`Inner Observable for ${outerValue}`).pipe(delay(100)))
     )
     .subscribe((result)=>{
       this.latestValue=result;
@@ -101,6 +111,72 @@ export class CreationOperatorComponent implements OnInit {
     .subscribe((result)=>{
       this.concatValue=result;
     });
+  }
+
+  //Filtering Operator
+  filterOperator():void{
+    const number$=of(1,42,730,4,5,611,7787,8);
+    number$.pipe(filter((value)=>value%2===0))
+    .subscribe((result)=>{
+      this.filter$+=`${result}  `;
+    });
+  }
+
+  takeOperator():void{
+    const source$=of(1,2,3,4,5,6);
+    source$.pipe(take(3))
+    .subscribe((result)=>{
+      this.take$+=`${result} `;
+    });
+  }
+
+  takeUntilOperator():void{
+    const source$=of(1,2,3,4,5,6);
+    const stop$=timer(3000); //stop after 3s
+    source$.pipe(takeUntil(stop$))
+    .subscribe((result)=>{
+      this.takeUntil$+=`${result} `;
+    });
+  }
+
+  skipOperator():void{
+    const source$=of(1,2,3,4,5,6);
+    source$.pipe(skip(2)) //skip the first 2 value and remaining value are print
+    .subscribe((result)=>{
+      this.skip$+=`${result} `;
+    });
+  }
+
+  distinctOperator():void{
+    const source$=of(1,2,2,4,21,4,21,32,12,45,65,3,2,5,3); //it take only unique value
+    source$.pipe(distinct())
+    .subscribe((value)=>{
+      this.distinct$+=`${value} `;
+    });
+  }
+
+  searchTerm: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  results$: string[] = [];
+
+  constructor(){
+    this.searchTerm.pipe(
+      throttleTime(500), 
+      debounceTime(300)
+      //switchMap(query => this.mockSearch(query)) 
+    ).subscribe((value) => {
+        this.results$=this.mockSearch(value);
+    });   
+  }
+
+  onSearch(event: Event):void{
+    const inputElement = event.target as HTMLInputElement;  
+    this.searchTerm.next(inputElement.value);  
+  }
+
+  mockSearch(searchTerm: string): string[] {
+    const allData = ['Apple', 'Banana', 'Cherry', 'Date', 'Grape', 'Kiwi', 'Lemon', 'Mango'];
+    if (!searchTerm) return [];
+    return allData.filter(item => item.toLowerCase().includes(searchTerm.toLowerCase()));
   }
 
 }
