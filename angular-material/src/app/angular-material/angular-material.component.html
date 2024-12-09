@@ -1,0 +1,11 @@
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <input type="text" matInput [formControl]="fruitControl" [matAutocomplete]="auto" placeholder="Choose a fruit">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                {{ fruit }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+    <mat-slide-toggle>Prerna</mat-slide-toggle>
+</form>

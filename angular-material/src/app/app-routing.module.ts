@@ -3,10 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AComponent } from './component/a/a.component';
 import { BComponent } from './component/b/b.component';
 
-const routes: Routes = [
-  {path:'',component:AComponent},
-  {path:'b',component:BComponent}
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
