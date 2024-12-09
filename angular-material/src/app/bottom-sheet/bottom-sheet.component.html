@@ -1,0 +1,10 @@
+<!-- <h3>Bottom Sheet Content</h3>
+<p>This is the bottom sheet content!</p>
+<button mat-button (click)="closeBottomSheet()">Close</button> -->
+
+<div [@bottomSheetAnimation]>
+    <h3>Bottom Sheet Content</h3>
+    <p>{{ data.message }}</p>
+    <button mat-button (click)="closeBottomSheet()">Close</button>
+  </div>
+  

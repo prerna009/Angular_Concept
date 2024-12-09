@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatInputModule } from '@angular/material/input';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AComponent } from './component/a/a.component';
@@ -13,13 +15,15 @@ import { AngularMaterialComponent } from './angular-material/angular-material.co
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AComponent,
     BComponent,
-    AngularMaterialComponent
+    AngularMaterialComponent,
+    BottomSheetComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatBadgeModule,
+    MatBottomSheetModule
   ],
   providers: [
     provideClientHydration()
