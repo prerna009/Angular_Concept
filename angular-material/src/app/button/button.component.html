@@ -1,0 +1,26 @@
+<div style="background-color: gray;">
+    <button mat-button>Button</button><br><br>
+    <button mat-raised-button color="primary">Raised</button><br><br>
+    <button mat-flat-button color="accent">Flat</button><br><br>
+    <button mat-stroked-button color="warn">Stroked</button><br>
+    <button mat-icon-button>Icon</button><br>
+    <button mat-fab>Fab</button><br>
+    <button mat-mini-fab>MFB</button><br>
+</div>
+<mat-button-toggle-group [(ngModel)]="selectedValue">
+    <mat-button-toggle value="option1">Option 1</mat-button-toggle>
+    <mat-button-toggle value="option2">Option 2</mat-button-toggle>
+    <mat-button-toggle value="option3">Option 3</mat-button-toggle>
+  </mat-button-toggle-group>
+  
+  <p>Selected Option: {{ selectedValue }}</p>
+
+
+  <mat-button-toggle-group [(ngModel)]="alertsEnabled">
+    <mat-button-toggle value="true" aria-label="Enable">Enable Alerts</mat-button-toggle>
+    <mat-button-toggle value="false" aria-label="Disable">Disable Alerts</mat-button-toggle>
+  </mat-button-toggle-group>
+  
+  <p>Alerts are currently: {{ alertsEnabled }}</p>
+  
+  

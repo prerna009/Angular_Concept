@@ -1,0 +1,7 @@
+.example-card{
+    max-width: 200px;
+}
+.example-avatar-image{
+    background-image: url('../../assets/Krishna.jpg');
+    background-size: cover;
+}
