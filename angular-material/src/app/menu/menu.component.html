@@ -1,0 +1,32 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+    </button>
+</mat-menu>
+
+<mat-tab-group>
+    <mat-tab label="First">Content 1</mat-tab>
+    <mat-tab label="Second">Content 2</mat-tab>
+    <mat-tab label="Third">Content 3</mat-tab>
+</mat-tab-group>
+
+<!-- <mat-tree>
+    <mat-tree-node>Fruit
+    <mat-tree-node>Mango</mat-tree-node>
+    <mat-tree-node>Apple</mat-tree-node>
+    <mat-tree-node>Grape</mat-tree-node>
+    </mat-tree-node>
+</mat-tree> -->
+<mat-paginator [length]="200" [pageSizeOptions]="[10,50,100]"></mat-paginator>

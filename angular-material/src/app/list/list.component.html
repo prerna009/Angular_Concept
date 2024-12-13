@@ -1,0 +1,13 @@
+<!--Simple list-->
+<mat-list>
+    <h3>Simple List</h3>
+    <mat-list-item>Pepper</mat-list-item>
+    <mat-list-item>Salt</mat-list-item>
+</mat-list>
+
+<mat-selection-list #typeOfShoes>
+    <h3>Select List</h3>
+    @for (shoe of shoes;track shoe){
+        <mat-list-option>{{shoe}}</mat-list-option>
+    }
+</mat-selection-list>

@@ -6,8 +6,22 @@ import { AppComponent } from './app.component';
 
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTreeModule } from "@angular/material/tree";
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatListModule } from "@angular/material/list";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { MatSliderModule  } from "@angular/material/slider";
+import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatRadioButton, MatRadioModule } from "@angular/material/radio";
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatInputModule } from '@angular/material/input';
@@ -21,6 +35,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DialogComponent } from './dialog/dialog.component';
+import { GridListComponent } from './grid-list/grid-list.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { ListComponent } from './list/list.component';
+import { MenuComponent } from './menu/menu.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +51,12 @@ import { CardComponent } from './card/card.component';
     AngularMaterialComponent,
     BottomSheetComponent,
     ButtonComponent,
-    CardComponent
+    CardComponent,
+    DialogComponent,
+    GridListComponent,
+    ListComponent,
+    MenuComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +72,25 @@ import { CardComponent } from './card/card.component';
     MatBottomSheetModule,
     MatButtonModule,
     MatButtonToggleModule,
-    MatCardModule
+    MatCardModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatGridListModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatSliderModule,
+    MatRadioModule,
+    MatProgressSpinnerModule,
+    MatTabsModule,
+    MatTreeModule
   ],
   providers: [
+    provideHttpClient(withFetch()),
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
