@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTreeModule } from "@angular/material/tree";
 import { MatTabsModule } from "@angular/material/tabs";
+import { MatTableModule } from "@angular/material/table";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatMenuModule } from "@angular/material/menu";
 import { MatListModule } from "@angular/material/list";
@@ -42,6 +43,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ListComponent } from './list/list.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { UserTableComponent } from './user-table/user-table.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     GridListComponent,
     ListComponent,
     MenuComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    UserTableComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +90,8 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     MatRadioModule,
     MatProgressSpinnerModule,
     MatTabsModule,
-    MatTreeModule
+    MatTreeModule,
+    MatTableModule
   ],
   providers: [
     provideHttpClient(withFetch()),
