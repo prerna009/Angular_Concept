@@ -12,12 +12,7 @@ export class AuthService {
   private tokenSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
   public token$: Observable<string | null> = this.tokenSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) {
-    // const savedToken = localStorage.getItem('authToken');
-    // if (savedToken) {
-    //   this.tokenSubject.next(savedToken);
-    // }
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   register(username: string, password: string): Observable<any> {
     return this.http.post(this.apiUrl, { username, password });

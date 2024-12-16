@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "c25a",
+      "username": "Prerna Gupta",
+      "password": "12345678",
+      "role": "admin"
+    },
+    {
+      "id": "2d23",
+      "username": "Sumeet Gupta",
+      "password": "12345678",
+      "role": "supervisor"
+    },
+    {
+      "id": "d1b5",
+      "username": "Kiran",
+      "password": "12345678",
+      "role": "admin"
+    }
+  ]
+}

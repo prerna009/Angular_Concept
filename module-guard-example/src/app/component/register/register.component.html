@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <div class="col-md-6">
+            <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+                <div class="md-3">
+                    <label for="username" class="form-label">Username :</label>
+                    <input type="text" id="username" formControlName="username" class="form-control"/>
+                    <div *ngIf="regForm.get('username')?.touched && regForm.get('username')?.invalid">
+                        <small class="text-danger">Username is required.</small>
+                    </div>
+                </div>
+                <div class="md-3">
+                    <label for="password" class="form-label">Password :</label>
+                    <input type="password" id="password" formControlName="password" class="form-control"/>
+                    <div *ngIf="regForm.get('password')?.touched && regForm.get('password')?.invalid">
+                        <small class="text-danger">Password is required (min 8 character).</small>
+                    </div>
+                </div>
+                <div class="md-3"> 
+                    <label for="confirmPassword" class="form-label">Confirm Password :</label>
+                    <input type="password" id="confirmPassword" formControlName="confirmPassword" class="form-control"/>
+                    <div *ngIf="regForm.get('confirmPassword')?.touched && regForm.get('confirmPassword')?.invalid">
+                        <small class="text-danger">Confirm password is required.</small>
+                    </div>
+                    <div *ngIf="regForm.errors?.['mismatch'] && regForm.get('confirmPassword')?.touched">
+                        <small class="text-danger">Password do not match.</small>
+                    </div>
+                </div>
+                <div class="md-3">
+                    <label for="role" class="form-label">User role :</label>
+                    <select formControlName="role" id="role" class="form-select">
+                        <option value="admin">Admin</option>
+                        <option value="supervisor">Supervisor</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" style="margin-top: 10px;" [disabled]="regForm.invalid">Register</button>
+            </form>
+            <div class="mt-3">
+                <p>Already have an account? <a routerLink="/login" class="text-decoration-none">Login here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
