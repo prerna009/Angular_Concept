@@ -13,6 +13,7 @@ import { UserDisplayComponent } from './user-display/user-display.component';
 import { EditComponent } from './edit/edit.component';
 import { OperatorComponent } from './operator/operator.component';
 import { CreationOperatorComponent } from './creation-operator/creation-operator.component';
+import { RxjsOperatorComponent } from './rxjs-operator/rxjs-operator.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CreationOperatorComponent } from './creation-operator/creation-operator
     UserDisplayComponent,
     EditComponent,
     OperatorComponent,
-    CreationOperatorComponent
+    CreationOperatorComponent,
+    RxjsOperatorComponent
   ],
   imports: [
     BrowserModule,
