@@ -7,7 +7,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule , ReactiveFormsModule } from "@angular/forms";
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
+import { AuthInterceptorService } from './service/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,8 +25,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 
   ],
   providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorService,multi:true},
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
   ],
   bootstrap: [AppComponent]
 })
