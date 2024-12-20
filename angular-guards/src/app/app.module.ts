@@ -12,6 +12,7 @@ import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors, with
 import { authInterceptor } from './interceptor/auth.interceptor';
 import { ToastrModule } from "ngx-toastr";
 import { errorInterceptor } from './interceptor/error.interceptor';
+import { tokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { errorInterceptor } from './interceptor/error.interceptor';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    provideHttpClient(withInterceptors([errorInterceptor,authInterceptor])),
+    provideHttpClient(withInterceptors([tokenInterceptor])),
   ],
   bootstrap: [AppComponent]
 })
