@@ -33,9 +33,12 @@ export class AuthService {
 
   // Check if user is authenticated
   isAuthenticated(): boolean {
-    return !!localStorage.getItem('authToken');
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const token = localStorage.getItem('authToken');
+      return token != null;
+    }
+    return false;  
   }
-
   // Logout
   logout(): void {
     localStorage.removeItem('authToken');

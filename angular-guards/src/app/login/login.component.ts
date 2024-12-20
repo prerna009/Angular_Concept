@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(username,password).subscribe(isAuthenticated=>{
       if(isAuthenticated){
         this.router.navigate(['/home']);
+        console.log('Data:',{username,password});
       }
       else{
         alert('Invalid Credentials!');
