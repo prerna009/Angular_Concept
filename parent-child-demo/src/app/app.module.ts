@@ -3,21 +3,30 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChildComponent } from './component/child/child.component';
-import { ParentComponent } from './component/parent/parent.component';
+import { ChildDemoComponent } from './component/child-demo/child-demo.component';
+import { ParentDemoComponent } from './component/parent-demo/parent-demo.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { CustomerListComponent } from './component/customer-list/customer-list.component';
+import { CustomerFormComponent } from './component/customer-form/customer-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChildComponent,
-    ParentComponent
+    ChildDemoComponent,
+    ParentDemoComponent,
+    CustomerListComponent,
+    CustomerFormComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
