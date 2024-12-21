@@ -8,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule , ReactiveFormsModule } from "@angular/forms";
-import {  provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import {  HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { authInterceptor } from './interceptor/auth.interceptor';
 import { errorInterceptor } from './interceptor/error.interceptor';
+import { loggedInterceptor } from './interceptor/logged.interceptor';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,8 @@ import { errorInterceptor } from './interceptor/error.interceptor';
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideHttpClient(withInterceptors([authInterceptor,errorInterceptor])),
+    provideHttpClient(withInterceptorsFromDi()),
+    {provide:HTTP_INTERCEPTORS,useClass:loggedInterceptor,multi:true},
   ],
   bootstrap: [AppComponent]
 })
