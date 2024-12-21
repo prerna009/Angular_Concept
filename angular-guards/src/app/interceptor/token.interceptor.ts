@@ -8,8 +8,8 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   const username = authService.getUsername();
     req = req.clone({
       setHeaders: {
-        'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
-        'X-USER': authService.getUsername() || 'DefaultUser',
+        'Authorization': `Bearer ${token}`,
+        'X-USER': username || 'DefaultUser',
       }
     });
   return next(req);
