@@ -8,11 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule , ReactiveFormsModule } from "@angular/forms";
-import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
+import {  provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from './interceptor/auth.interceptor';
-import { ToastrModule } from "ngx-toastr";
 import { errorInterceptor } from './interceptor/error.interceptor';
-import { tokenInterceptor } from './interceptor/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,7 +42,7 @@ import { tokenInterceptor } from './interceptor/token.interceptor';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    provideHttpClient(withInterceptors([tokenInterceptor])),
+    provideHttpClient(withInterceptors([authInterceptor,errorInterceptor])),
   ],
   bootstrap: [AppComponent]
 })
