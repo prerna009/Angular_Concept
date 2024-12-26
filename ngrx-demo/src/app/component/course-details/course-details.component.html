@@ -1,0 +1,47 @@
+<div class="container">
+    <h3>Course Management</h3>
+    <div *ngIf="loading$ | async" class="loading">
+        <p>Loading...</p>
+    </div>
+    <div *ngIf="error$ | async as error" class="error">
+        <p>{{ error }}</p>
+    </div>
+    <div class="add-course">
+        <h5>Add New Course</h5>
+        <form (ngSubmit)="addCourse(course)" #courseForm="ngForm" class="form-container">
+            <div class="fomr-group">
+                <label for="id" class="form-label">Course ID</label>
+                <input type="text" id="id" [(ngModel)]="course.id" name="id" class="form-control" required>
+            </div>
+            <div class="fomr-group">
+                <label for="title" class="form-label">Course Title</label>
+                <input type="text" id="title" [(ngModel)]="course.title" name="title" class="form-control" required>
+            </div>
+            <div class="fomr-group">
+                <label for="description">Course Description</label>
+                <textarea id="description" [(ngModel)]="course.description" name="description" class="form-control"></textarea>
+            </div>
+            <div class="fomr-group">
+                <label for="duration" class="form-label">Course Title</label>
+                <input type="text" id="duration" [(ngModel)]="course.duration" name="duration" class="form-control" required>
+            </div>
+            <div class="fomr-group">
+                <label for="price" class="form-label">Course Title</label>
+                <input type="text" id="price" [(ngModel)]="course.price" name="price" class="form-control" required>
+            </div>
+            <button type="submit" [disabled]="courseForm.invalid">Add Course</button>
+        </form>
+    </div>
+    <div *ngIf="!(loading$ | async)" class="course-list">
+        <h5>Course List</h5>
+
+        <div *ngFor="let course of courses$ | async" class="course-item">
+            <div class="course-details">
+                <h3>{{ course.title }}</h3>
+                <p>{{ course.description }}</p>
+            </div>
+            <button (click)="updateCourse(course)" class="update-btn">Update</button>
+            <button (click)="deleteCourse(course.id)" class="delete-btn">Delete</button>
+        </div>
+    </div>
+</div>

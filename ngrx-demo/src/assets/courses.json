@@ -1,0 +1,74 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Angular Basics",
+      "description": "Learn the basics of Angular",
+      "duration": "3 hours",
+      "price": 50
+    },
+    {
+      "id": 2,
+      "title": "Advanced Angular",
+      "description": "Dive deep into Angular",
+      "duration": "5 hours",
+      "price": 100
+    },
+    {
+      "id": 3,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    },
+    {
+      "id": 4,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    },
+    {
+      "id": 5,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    },
+    {
+      "id": 6,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    },
+    {
+      "id": 7,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    },
+    {
+      "id": 8,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    },
+    {
+      "id": 9,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    },
+    {
+      "id": 10,
+      "title": "hghgsagh",
+      "description": "hghjajka",
+      "duration": "",
+      "price": 0
+    }
+  ]
+}
