@@ -1,0 +1,39 @@
+<section>
+    <div class="container">
+        <div class="row" style="margin-top: 5%;">
+            <div class="col-md-12" style="text-align: center; margin: 5%;">
+                <h2>My Articles</h2>
+            </div>
+            <div class="col-md-6">
+                <div class="card p-4 shadow-sm">
+                    <form #myform="ngForm" (ngSubmit)="addArticle(myform)" class="form-container">
+                        <div class="form-group">
+                            <label for="id" class="form-label">Article Id : </label>
+                            <input type="text" class="form-control" ngModel name="id" id="id" aria-describedby="id" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="title" class="form-label">Title : </label>
+                            <input type="text" name="title" id="title" ngModel aria-describedby="title" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="author" class="form-label">Author : </label>
+                            <input type="text" name="author" id="author" ngModel aria-describedby="author" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="publisher" class="form-label">Publisher : </label>
+                            <input type="text" name="publisher" id="publisher" ngModel aria-describedby="publisher" class="form-control"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary" *ngFor="let article of article$ | async">
+                        {{article.title}} <b>{{article.author}}</b>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
