@@ -1,46 +1,50 @@
-<div class="container">
-    <h3>Course Management</h3>
-    <div *ngIf="loading$ | async" class="loading">
-        <p>Loading...</p>
-    </div>
-    <div *ngIf="error$ | async as error" class="error">
-        <p>{{ error }}</p>
-    </div>
-    <div *ngIf="!(loading$ | async)" class="course-list">
-        <h5>Course List</h5>
-        <div *ngFor="let course of courses$ | async" class="course-item">
-            <div class="course-details">
-                <h6>{{ course.title }}</h6>
-                <p>{{ course.description }}</p>
+<div class="d-flex" style="margin: 20px;">
+    <div class="container">
+        <h3>Course List</h3>
+        <div *ngIf="loading$ | async" class="loading">
+            <p>Loading...</p>
+        </div>
+        <div *ngIf="error$ | async as error" class="error">
+            <p>{{ error }}</p>
+        </div>
+        <div *ngIf="!(loading$ | async)" class="course-list">
+            <div *ngFor="let course of courses$ | async" class="row">
+                <div class="mt-3">
+                    <h6>{{ course.title }}</h6>
+                    <p>{{ course.description }}</p>
+                    <button (click)="onEdit(course)" class="update-btn">Update</button>
+                    <button (click)="deleteCourse(course.id)" class="delete-btn">Delete</button>
+                </div>
             </div>
-            <button (click)="onEdit(course)" class="update-btn">Update</button>
-            <button (click)="deleteCourse(course.id)" class="delete-btn">Delete</button>
         </div>
     </div>
     <div class="container">
         <h5>{{ course.id ? 'Update Course' : 'Add New Course' }}</h5>
         <form (ngSubmit)="onSubmit(course)" #courseForm="ngForm" class="form-container">
-            <div class="fomr-group">
+            <div class="form-group">
                 <label for="id" class="form-label">Course ID</label>
-                <input type="text" id="id" [(ngModel)]="course.id" name="id" class="form-control" required [readonly]="true">
+                <input type="text" id="id" [(ngModel)]="course.id" name="id" class="form-control" required
+                    [readonly]="true">
             </div>
-            <div class="fomr-group">
+            <div class="form-group">
                 <label for="title" class="form-label">Course Title</label>
                 <input type="text" id="title" [(ngModel)]="course.title" name="title" class="form-control" required>
             </div>
-            <div class="fomr-group">
+            <div class="form-group">
                 <label for="description">Course Description</label>
-                <textarea id="description" [(ngModel)]="course.description" name="description" class="form-control"></textarea>
+                <textarea id="description" [(ngModel)]="course.description" name="description"
+                    class="form-control"></textarea>
             </div>
-            <div class="fomr-group">
+            <div class="form-group">
                 <label for="duration" class="form-label">Course Duration</label>
-                <input type="text" id="duration" [(ngModel)]="course.duration" name="duration" class="form-control" required>
+                <input type="text" id="duration" [(ngModel)]="course.duration" name="duration" class="form-control"
+                    required>
             </div>
-            <div class="fomr-group">
+            <div class="form-group">
                 <label for="price" class="form-label">Course Price</label>
                 <input type="text" id="price" [(ngModel)]="course.price" name="price" class="form-control" required>
             </div>
-            <button type="submit" [disabled]="courseForm.invalid">
+            <button type="submit" class="mt-3" [disabled]="courseForm.invalid">
                 {{ course.id ? 'Update Course' : 'Add Course' }}
             </button>
         </form>

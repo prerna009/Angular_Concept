@@ -62,6 +62,7 @@ export class CourseDetailsComponent implements OnInit{
     this.courseService.updateCourse(course).subscribe({
       next:(updateCourse)=>{
         this.store.dispatch(courseActions.updateCourseSuccess({course:updateCourse}));
+        this.loadCourse();
       },
       error:(error)=>{
         this.store.dispatch(courseActions.updateCourseFailure({error}));
@@ -73,6 +74,7 @@ export class CourseDetailsComponent implements OnInit{
    this.courseService.deleteCourse(id).subscribe({
     next:()=>{
       this.store.dispatch(courseActions.deleteCourseSuccess({id}));
+      this.loadCourse();
     },
     error:(error)=>{
       this.store.dispatch(courseActions.deleteCourseFailure({error}));
