@@ -1,74 +1,39 @@
 {
   "courses": [
     {
-      "id": 1,
-      "title": "Angular Basics",
-      "description": "Learn the basics of Angular",
-      "duration": "3 hours",
-      "price": 50
-    },
-    {
       "id": 2,
-      "title": "Advanced Angular",
-      "description": "Dive deep into Angular",
-      "duration": "5 hours",
-      "price": 100
+      "title": "React Native",
+      "description": "ghk jhdsjkjkd akkl",
+      "duration": "1.3 year",
+      "price": "45000"
     },
     {
       "id": 3,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
+      "title": "Java Developer",
+      "description": "hjjasklkldas",
+      "duration": "1.5year",
+      "price": "100000"
     },
     {
       "id": 4,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
+      "title": "Java Developer",
+      "description": "jnalslks",
+      "duration": "2 year",
+      "price": "70000"
     },
     {
       "id": 5,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
+      "title": "has",
+      "description": "hjkajskjksa",
+      "duration": "2 year",
+      "price": "20000"
     },
     {
       "id": 6,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
-    },
-    {
-      "id": 7,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
-    },
-    {
-      "id": 8,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
-    },
-    {
-      "id": 9,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
-    },
-    {
-      "id": 10,
-      "title": "hghgsagh",
-      "description": "hghjajka",
-      "duration": "",
-      "price": 0
+      "title": "JAvaScript",
+      "description": "ahjk",
+      "duration": "6 month",
+      "price": "25000"
     }
   ]
 }
