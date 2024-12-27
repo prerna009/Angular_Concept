@@ -14,6 +14,7 @@ import { EditComponent } from './edit/edit.component';
 import { OperatorComponent } from './operator/operator.component';
 import { CreationOperatorComponent } from './creation-operator/creation-operator.component';
 import { PerformOperatorComponent } from './perform-operator/perform-operator.component';
+import { SubjectDemoComponent } from './subject-demo/subject-demo.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PerformOperatorComponent } from './perform-operator/perform-operator.co
     EditComponent,
     OperatorComponent,
     CreationOperatorComponent,
-    PerformOperatorComponent
+    PerformOperatorComponent,
+    SubjectDemoComponent
   ],
   imports: [
     BrowserModule,
