@@ -1,0 +1,24 @@
+<p>{{title}}</p>
+<button type="button" [disabled]="isDisabled">{{myBtn}}</button>
+
+<div [style.backgroundColor]="bgColor">
+    <p [style.color]="titleColor">{{title}}</p>
+    <p [style]="description">Description</p>
+</div>
+
+<h2 [class.textColor]="redText == 'yes'">Title</h2>
+<button (click)="incrementCounter()">Increment</button>
+<p>Counter : {{counter}}</p>
+
+<input [(ngModel)]="inputText" placeholder="Enter text"/>
+<p>You entered : {{inputText}}</p>
+
+<div [ngClass]="classes">
+    {{message}}
+</div>
+
+<!-- <div [ngStyle]="{color: selectedColor}">
+    Box
+</div> -->
+
+<div [ngStyle]="{backgroundColor: selectedColor}">Box</div>

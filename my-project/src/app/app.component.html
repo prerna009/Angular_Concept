@@ -8,7 +8,7 @@
 <!-- <app-custom-directives></app-custom-directives> -->
 
 <!--Example of Pipes-->
-<app-pipes></app-pipes>
+<!-- <app-pipes></app-pipes> -->
 
 <!--Example of DI-->
 <!-- <h1>Angular Dependency Injection</h1>
@@ -19,3 +19,10 @@
 
 <!-- <button (click)="incrementCounter()">Increment Counter</button>
 <p>{{counter}}</p> -->
+
+<!-- <app-binding-example></app-binding-example> -->
+
+<!-- <p>{{messages}}</p> -->
+
+<h2>Task List</h2>
+<app-child *ngFor="let t of tasks" [task]="t" (taskDeleted)="deleteTask(t)"></app-child>

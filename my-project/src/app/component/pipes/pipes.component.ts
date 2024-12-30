@@ -7,15 +7,17 @@ import { filter, map } from 'rxjs/operators';
 import { FilterByLengthPipe } from './filter-by-length.pipe';
 import { CharactersPipe } from './characters.pipe';
 import { error } from 'console';
+import { AppendPipe } from './append.pipe';
 
 @Component({
   selector: 'app-pipes',
   standalone: true,
-  imports: [CommonModule,ReversePipe,FilterByLengthPipe,CharactersPipe],
+  imports: [CommonModule,ReversePipe,FilterByLengthPipe,CharactersPipe,AppendPipe],
   templateUrl: './pipes.component.html',
   styleUrl: './pipes.component.css'
 })
 export class PipesComponent {
+  title:string='Hello';
   price: number = 2345.4566;
   currentDate: Date = new Date();
   myString:string='This is a STRING in Mixed CASE.';
