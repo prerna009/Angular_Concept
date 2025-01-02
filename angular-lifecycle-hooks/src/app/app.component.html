@@ -1,0 +1,11 @@
+<div style="text-align: center;">
+  <h2>Welcome to Angular LifeCycle Hooks</h2>
+  <div>
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">Decrement</button>
+    <button (click)="add()">Add</button>
+
+    <app-child *ngIf="isVisible" [myCounter]="counter" [numbers]="numbers">hello Angular!</app-child>
+    <button (click)="setVisibility()">Show/Hide</button>
+  </div>
+</div>
