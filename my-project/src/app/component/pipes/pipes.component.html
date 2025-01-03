@@ -3,7 +3,7 @@
     <h3>Using Currency Pipe</h3>
     <p>Price : {{price | currency}}</p>
     <p>Price : {{price | currency : 'EUR' : 'symbol' : '4.2-2'}}</p>
-    <p>Price : {{price | currency : 'INR' : 'symbol' : '4.2-2'}}</p>
+    <p>Price : {{price | currency : 'INR' : 'symbol' : '2.2-3'}}</p>
 </div>
 <div>
     <h3>Using Date Pipe</h3>
@@ -16,6 +16,7 @@
     <p>Current Date : {{currentDate | date : 'short'}}</p>
     <p>Current Date : {{currentDate | date : 'a'}}</p>
     <p>Current Date : {{currentDate | date : 'z'}}</p>
+    <p>Current Time : {{currentDate | date : 'h:mm:ss'}}</p>
 </div>
 <div>
     <h3>Using JSON Pipe</h3>
@@ -76,6 +77,6 @@ after a sentence when the number of characters in the sentence exceeds 20 charac
 
 <!--Create a append pipe-->
 <div>
-    <p>Append Text : {{title | append : ' World'}}</p>
+    <p>Append Text : {{title | append : ' World' | uppercase}}</p>
 </div>
  

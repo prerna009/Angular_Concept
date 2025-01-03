@@ -9,11 +9,12 @@ import { BindingExampleComponent } from './component/binding-example/binding-exa
 import { FormsModule } from "@angular/forms";
 import { MessagesService } from './service/messages.service';
 import { ChildComponent } from './component/child/child.component';
+import { ControlFlowComponent } from './component/control-flow/control-flow.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,StructuralExampleComponent,AttributeDirectivesComponent,CustomDirectivesComponent,PipesComponent,EmpInfoComponent,BindingExampleComponent,FormsModule,ChildComponent],
+  imports: [CommonModule,StructuralExampleComponent,AttributeDirectivesComponent,CustomDirectivesComponent,PipesComponent,EmpInfoComponent,BindingExampleComponent,FormsModule,ChildComponent,ControlFlowComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -18,7 +18,7 @@ import { AppendPipe } from './append.pipe';
 })
 export class PipesComponent {
   title:string='Hello';
-  price: number = 2345.4566;
+  price: number = 5.4566;
   currentDate: Date = new Date();
   myString:string='This is a STRING in Mixed CASE.';
   myNumber:number=0.82;
