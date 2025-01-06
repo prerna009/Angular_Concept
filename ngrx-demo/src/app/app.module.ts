@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,18 +12,26 @@ import { counterReducer } from './reducers/counter.reducer';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
 import { courseReducer } from './reducers/course.reducer';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { TodoReducer } from './store/reducers/todo.reducer';
+import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { TodoListComponent } from './component/todo-list/todo-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     MyCounterComponent,
     ArticleComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    TodoListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    StoreModule.forRoot({course:courseReducer})
+    //StoreModule.forRoot({course:courseReducer})
+    StoreModule.forRoot({todos:TodoReducer}),
+    StoreDevtoolsModule.instrument({
+      maxAge:25
+    })
   ],
   providers: [
     provideHttpClient(withFetch())
