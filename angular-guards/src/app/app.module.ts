@@ -43,9 +43,7 @@ import { loggedInterceptor } from './interceptor/logged.interceptor';
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    provideHttpClient(withInterceptors([authInterceptor,errorInterceptor])),
-    provideHttpClient(withInterceptorsFromDi()),
-    {provide:HTTP_INTERCEPTORS,useClass:loggedInterceptor,multi:true},
+    provideHttpClient(withInterceptors([loggedInterceptor])),
   ],
   bootstrap: [AppComponent]
 })
