@@ -1,25 +1,36 @@
 <div class="todo-container">
   <h2>Todo List</h2>
-  <form (ngSubmit)="addTodo()">
-    <input
-      type="text"
-      name="newTodoTitle"
-      placeholder="Add a todo"
-      [(ngModel)]="newTodoTitle"
-      class="form-control"
-    />
-    <button type="submit" class="btn btn-primary">Add</button>
+  <form (submit)="addTodo()">
+    <div class="d-flex justify-content-between m-3">
+      <input
+        type="text"
+        name="newTodoTitle"
+        placeholder="Add a todo"
+        [(ngModel)]="newTodoTitle"
+        class="form-control"
+      />
+      <button type="submit" class="btn btn-primary ms-2">Add</button>
+    </div>
+      
   </form>
-  <ul>
+  <ul class="list-group my-5 mx-3" style="list-style-type: none;">
     <li *ngFor="let todo of todo$">
       <input
         type="checkbox"
         [checked]="todo.completed"
         (change)="toggleTodo(todo.id)"
-        class="form-control"
+        style="float: left; transform: scale(1.5);"
+        class="mt-2"
       />
-      <span [ngClass]="{ completed: todo.completed }">{{ todo.title }}</span>
-      <button (click)="removeTodo(todo.id)" class="btn btn-danger">
+      <p
+        [ngClass]="{ completed: todo.completed }"
+        style="font-size: large; display: inline-flex;">{{ todo.title }}
+      </p>
+      <button
+      type="button"
+        (click)="removeTodo(todo.id)"
+        class="btn btn-danger"
+        style="float: right">
         Remove
       </button>
     </li>

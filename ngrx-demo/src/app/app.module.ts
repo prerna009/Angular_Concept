@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { MyCounterComponent } from './component/my-counter/my-counter.component';
 import { ArticleComponent } from './component/article/article.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule} from "@angular/forms";
 import { ArticleReducer } from './reducers/article.reducer';
 import { counterReducer } from './reducers/counter.reducer';
 import { CourseDetailsComponent } from './component/course-details/course-details.component';
@@ -15,6 +15,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { TodoReducer } from './store/reducers/todo.reducer';
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { TodoListComponent } from './component/todo-list/todo-list.component';
+import { CommonModule } from '@angular/common';
+import { EffectsModule } from "@ngrx/effects";
+import { TodoEffects } from './effects/todo.effects';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,11 +30,13 @@ import { TodoListComponent } from './component/todo-list/todo-list.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    EffectsModule,
     //StoreModule.forRoot({course:courseReducer})
     StoreModule.forRoot({todos:TodoReducer}),
     StoreDevtoolsModule.instrument({
       maxAge:25
-    })
+    }),
+    EffectsModule.forRoot([TodoEffects])
   ],
   providers: [
     provideHttpClient(withFetch())
