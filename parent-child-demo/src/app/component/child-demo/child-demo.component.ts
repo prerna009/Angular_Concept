@@ -8,8 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class ChildDemoComponent {
   message="Hello Angular!!";
   @Input({
-    required:true,
-    alias:"parentMessage",
+    // required:true,
+    // alias:"parentMessage",
     transform:(value:string)=>{
       return `${value}`;
     }

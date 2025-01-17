@@ -6,15 +6,10 @@ import { ChildDemoComponent } from '../child-demo/child-demo.component';
   templateUrl: './parent-demo.component.html',
   styleUrl: './parent-demo.component.css'
 })
-export class ParentDemoComponent implements AfterViewInit{
+export class ParentDemoComponent{
 
   @ViewChild(ChildDemoComponent) child: any;
 
-  message!: string;
-  
-  ngAfterViewInit(){
-    this.message=this.child.message;
-  }
   parentMessage="Hello from parent!";
 
   messageFromChild="";
