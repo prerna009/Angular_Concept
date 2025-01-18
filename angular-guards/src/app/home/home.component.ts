@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit{
   }
 
   onSubmit(){
-    debugger
     if(this.listForm.valid){
       this.authService.addList(this.listForm.value).subscribe(res=>res);
       console.log(this.listForm.value);

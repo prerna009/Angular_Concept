@@ -14,7 +14,6 @@ export class AComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private cdr: ChangeDetectorRef,private ngZone:NgZone) {}
 
   ngOnInit(): void {
-    debugger
     console.log('ngOnInit called');
     this.timer = setInterval(() => {
       this.ngZone.run(()=>{
