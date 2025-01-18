@@ -45,5 +45,15 @@
       "username": "mira",
       "password": "12345678"
     }
+  ],
+  "tasks": [
+    {
+      "id": "d91b",
+      "name": "Task 1"
+    },
+    {
+      "id": "e349",
+      "name": "Task 1"
+    }
   ]
 }

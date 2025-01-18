@@ -6,12 +6,21 @@ export const loggedInterceptor: HttpInterceptorFn = (req, next) => {
     const authService=inject(AuthService);
     const token = authService.getToken();
     const username = authService.getUsername();
-    const modifiedReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`,
-        'X-User': `${username}`,
-      }
-    })
-    return next(modifiedReq);
+
+    if(req.url === 'http://localhost:3000/users' && !req.params.has('login')){
+      return next(req);
+    }
+    console.log(token);
+
+    if(token){
+      req = req.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+          'X-User': `${username}`,
+        }
+      })
+    }
+    return next(req);
+    
 } 
 

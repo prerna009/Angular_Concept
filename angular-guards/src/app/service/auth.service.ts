@@ -8,6 +8,8 @@ import { BehaviorSubject, filter, find, map, Observable } from 'rxjs';
 })
 export class AuthService {
   private apiUrl = 'http://localhost:3000/users';
+
+  private apiUrl2 = 'http://localhost:3000/tasks';
   
   constructor(private http: HttpClient, private router: Router) { }
   
@@ -52,6 +54,10 @@ export class AuthService {
     localStorage.removeItem('authToken');
     localStorage.removeItem('username');
     this.router.navigate(['/login']);
+  }
+
+  addList(data:any):Observable<any>{
+    return this.http.post<any>(this.apiUrl2,data);
   }
 
 }

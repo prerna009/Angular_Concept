@@ -1,4 +1,9 @@
 <div class="home-container">
     <h2>Welcome to the Home Page!</h2>
     <button (click)="onLogout()">Logout</button>
+    <form class="form" [formGroup]="listForm" (ngSubmit)="onSubmit()">
+        <label for="name" class="form-label">Task Name</label>
+        <input id="name" formControlName="name" class="form-control"/>
+        <button [disabled]="listForm.invalid" class="btn btn-primary" type="submit">Add Task</button>
+    </form>
 </div>  
