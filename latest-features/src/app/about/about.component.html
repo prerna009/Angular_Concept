@@ -1,0 +1,6 @@
+<h2>Welcome to About Page!</h2>
+<ng-container *ngFor="let image of images">
+    <picture>
+        <img [src]="'/assets/images/' + image" alt="Responsive Image" loading="lazy" style="width: 60%; height: auto;">
+    </picture>
+</ng-container>

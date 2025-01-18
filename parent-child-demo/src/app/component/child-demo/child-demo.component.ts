@@ -7,14 +7,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class ChildDemoComponent {
   message="Hello Angular!!";
-  // @Input({
-  //   required:false,
-  //   //alias:"parentMessage",
-  //   transform:(value:string)=>{
-  //     return `${value}`;
-  //   }
-  // }) childMessage!: string;
-  @Input() childMessage!:string;
+  @Input({
+    required:true,
+    transform:(value:string)=>{
+      return `${value}`;
+    }
+  }) childMessage!: string;
 
   @Output() messageToParent=new EventEmitter<string>();
 
