@@ -30,17 +30,20 @@ export class StructuralExampleComponent {
     {
       "country":"US",
       "people":[
-        {
-          "name":"John",
-          "age":30,
-          "gender":"male"
-        },
-        {
-          "name":"Noa",
-          "age":35,
-          "gender":"male"
-        }
+        // {
+        //   "name":"John",
+        //   "age":30,
+        //   "gender":"male"
+        // },
+        // {
+        //   "name":"Noa",
+        //   "age":35,
+        //   "gender":"male"
+        // }
       ]
     }
   ];
+
+
+  colors:string='pink';
 }

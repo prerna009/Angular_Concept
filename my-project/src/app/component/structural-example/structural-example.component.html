@@ -25,3 +25,45 @@
         </li>
     </ul>
 </ul>
+
+<!--latest if and else example-->
+<h4>Latest If & else syntax</h4>
+@for (group of person; track group){
+<ul>
+    <li>
+        {{group.country}}
+    </li>
+    @for (pobj of group.people; track pobj){
+    <ul>
+            @if (pobj.age <= 30){
+                <li>
+                {{pobj.name}} ({{pobj.age}})
+                </li>
+            } @else{
+                <li>
+                    {{pobj.name}} ({{pobj.age}})
+                </li>
+            }
+        </ul>
+    }
+    @empty{
+        <p>There are no records.</p>
+    }
+</ul>
+}
+
+<!--switch latest syntax-->
+@switch (colors){
+    @case('red'){
+        <div>Red Color</div>
+    }
+    @case('green'){
+        <div>Green Color</div>
+    }
+    @case('yellow'){
+        <div>Yellow Color</div>
+    }
+    @default{
+        <div>Other colors</div>
+    }
+}
