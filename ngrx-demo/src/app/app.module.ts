@@ -31,7 +31,8 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     CommonModule,
-    //StoreModule.forRoot({course:courseReducer})
+    //StoreModule.forRoot({count:counterReducer}),
+    //StoreModule.forRoot({course:courseReducer}),
     StoreModule.forRoot({todos:TodoReducer}),
   ],
   providers: [
