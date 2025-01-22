@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, afterNextRender, afterRender, AfterRenderOptions, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -10,6 +10,20 @@ export class ChildComponent implements OnChanges,OnInit,DoCheck,AfterContentInit
   @Input() numbers!:number[];
 
   public changelog:string[]=[];
+
+  constructor(){
+    afterRender(()=>{
+      console.log('afterRender:');
+    });
+
+    afterNextRender(()=>{
+      console.log('afterNextRender:');
+    });
+  }
+
+  clickButton(): void {
+    console.log("SRK")
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     for(const propName in changes){
