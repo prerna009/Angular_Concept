@@ -7,16 +7,28 @@ import { provideRouter, TitleStrategy } from '@angular/router';
 import { templatepagetitlestrategy } from './templatepagetitle.strategy';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { SignalComponent } from './signal/signal.component';
+import { GroceryListComponent } from './signal/grocery-list/grocery-list.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
+import { ContentChildComponent } from './content-child/content-child.component';
+import { ContentChildrenComponent } from './content-children/content-children.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    SignalComponent,
+    GroceryListComponent,
+    ContentChildComponent,
+    ContentChildrenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
   ],
   providers: [
     provideClientHydration(),
