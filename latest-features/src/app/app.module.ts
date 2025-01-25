@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
 import { ContentChildComponent } from './content-child/content-child.component';
 import { ContentChildrenComponent } from './content-children/content-children.component';
+import { SkeletonComponent } from './skeleton/skeleton.component';
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 
 @NgModule({
   declarations: [
@@ -22,13 +24,20 @@ import { ContentChildrenComponent } from './content-children/content-children.co
     SignalComponent,
     GroceryListComponent,
     ContentChildComponent,
-    ContentChildrenComponent
+    ContentChildrenComponent,
+    SkeletonComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
     FormsModule,
+    NgxSkeletonLoaderModule.forRoot({
+      theme: {
+        extendsFromRoot: true,
+        height: '30px',
+      },
+     }),
   ],
   providers: [
     provideClientHydration(),
