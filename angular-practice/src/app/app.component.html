@@ -1,0 +1,11 @@
+<app-angular-lifecycle [value]="parentValue"></app-angular-lifecycle>
+<button (click)="parentValue = 'New value from parent'">Update from parent</button>
+
+<app-pipe></app-pipe>
+<app-view></app-view>
+
+<!--Custom Directive Example-->
+<p appHighlight>Hover over this text to see the effect.</p>
+<button appToggle style="padding: 10px;">
+    Click me to toggle border color!
+</button>

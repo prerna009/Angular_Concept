@@ -1,0 +1,4 @@
+<h3>Async Pipe Example</h3>
+
+<p>User : {{userPromise | async}}</p>
+<p *ngIf="!(userPromise | async)">Loading user...</p>
