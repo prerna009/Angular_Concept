@@ -26,5 +26,6 @@ export class NoteListComponent implements OnInit {
 
   deleteNote(id:number):void{
     this.noteService.deleteNote(id);
+    localStorage.removeItem('API_URL');
   }
 }
