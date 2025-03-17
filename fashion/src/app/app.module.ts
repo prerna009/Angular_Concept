@@ -7,8 +7,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { ThemeModule } from './module/theme.module';
 import { MaterialModule } from './module/material.module';
 import { ToastrModule } from "ngx-toastr";
-import { UserService } from './core/services/user.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,7 @@ import { provideHttpClient } from '@angular/common/http';
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient()
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

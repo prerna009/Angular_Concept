@@ -28,4 +28,20 @@ export class UserService {
       return false;
     }));
   }
+
+  isAuthenticated(): boolean{
+    if(typeof window !== 'undefined' && window.localStorage){
+      const token = sessionStorage.getItem('authToken');
+      return token != null;
+    }
+    return false;
+  }
+
+  getUsername(): User | null{
+    const user = sessionStorage.getItem('userDetails');
+    if(user){
+      return JSON.parse(user);
+    }
+    return null;
+  }
 }

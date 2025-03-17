@@ -33,6 +33,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+               "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -40,7 +41,8 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/rose-red.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -98,6 +100,7 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
+               "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -105,7 +108,8 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/rose-red.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           }

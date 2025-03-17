@@ -27,15 +27,18 @@ export class LoginComponent {
 
   onLogin() {
     if (this.loginForm.invalid) return;
-    const emailId = this.loginForm.get('emailId')?.value;
-    const password = this.loginForm.get('password')?.value;
+    const {emailId, password} = this.loginForm.value;
     this.userService.login(emailId, password).subscribe({
       next: (res) => {
-        this.toaster.success('User Login Successfully');
-        this.router.navigate(['/home']);
+        if (res) {
+          this.toaster.success('User Login Successfully');
+          this.router.navigate(['/home']); 
+        } else {
+          this.toaster.error('Invalid Credentials');
+        }
       },
-      error: (err) => {
-        this.toaster.error(err);
+      error: () => {
+        this.toaster.error('Something went wrong. Please try again.');
       },
     });
   }
