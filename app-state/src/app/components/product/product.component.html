@@ -1,0 +1,8 @@
+<h2>Products List</h2>
+
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="error$ | async as err">Error: {{ err }}</div>
+
+<ul *ngIf="products$ | async as products">
+  <li *ngFor="let product of products">{{ product.name }}</li>
+</ul>
