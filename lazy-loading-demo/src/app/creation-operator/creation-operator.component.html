@@ -1,38 +1,41 @@
 <div>
-    <h3>RxJS Creation Operators</h3>
-    <button #clickMe>Click Me</button>
-    <ul>
-        <li><strong>of & map:</strong> {{ of$ }}</li>
-        <li><strong>from & map:</strong> {{ from$ }}</li>
-        <li><strong>interval:</strong> {{ interval$ }}</li>
-        <li><strong>timer:</strong> {{ timer$ }}</li>
-        <li><strong>fromEvent:</strong> {{ fromEvent$ }}</li>
-    </ul>
-    <h3>RxJS Transformed Operators</h3>
-    <ul>
-        <li><strong>mergeMap:</strong> {{ results }}</li>
-        <li><strong>switchMap:</strong> {{ latestValue }} </li>
-        <li><strong>concatMap:</strong> {{ concatValue }} </li>
-    </ul>
-    <h3>RxJS Filtering Operators</h3>
-    <ul>
-        <li><strong>filter:</strong> 'Even numbers are' {{ filter$ }} </li>
-        <li><strong>take:</strong> {{ take$ }} </li>
-        <li><strong>takeUntil:</strong> {{ takeUntil$ }} </li>
-        <li><strong>skip:</strong> {{ skip$ }} </li>
-        <li><strong>distinct:</strong> {{ distinct$ }} </li>
-    </ul>
+  <h3>RxJS Creation Operators</h3>
+  <button #clickMe>Click Me</button>
+  <ul>
+    <li><strong>of & map:</strong> {{ of$ }}</li>
+    <li><strong>from & map:</strong> {{ from$ }}</li>
+    <li><strong>interval:</strong> {{ interval$ }}</li>
+    <li><strong>timer:</strong> {{ timer$ }}</li>
+    <li><strong>fromEvent:</strong> {{ fromEvent$ }}</li>
+  </ul>
+  <h3>RxJS Transformed Operators</h3>
+  <ul>
+    <li><strong>mergeMap:</strong> {{ results }}</li>
+    <li><strong>switchMap:</strong> {{ latestValue }} </li>
+    <li><strong>concatMap:</strong> {{ concatValue }} </li>
+    <li><strong>pluck:</strong>{{ pluck$ }}</li>
+    <li><strong>scan:</strong>{{ scan$ }}</li>
+  </ul>
+  <h3>RxJS Filtering Operators</h3>
+  <ul>
+    <li><strong>filter:</strong> 'Even numbers are' {{ filter$ }} </li>
+    <li><strong>take:</strong> {{ take$ }} </li>
+    <li><strong>takeUntil:</strong> {{ takeUntil$ }} </li>
+    <li><strong>skip:</strong> {{ skip$ }} </li>
+    <li><strong>distinct:</strong> {{ distinct$ }} </li>
+  </ul>
 </div>
 <div>
   <h3>ThrottleTime and DebounceTime Example</h3>
-  <input type="text" placeholder="Search fruits..." (input)="onSearch($event)" [value]="searchTerm.getValue()"  style="padding: 10px; width: 300px;" />
+  <input type="text" placeholder="Search fruits..." (input)="onSearch($event)" [value]="searchTerm.getValue()"
+    style="padding: 10px; width: 300px;" />
   <div *ngIf="results$.length > 0" style="margin-top: 20px;">
     <h3>Search Results:</h3>
     <ul>
-      <li *ngFor="let result of results$">{{ result }}</li> 
+      <li *ngFor="let result of results$">{{ result }}</li>
     </ul>
   </div>
   <div *ngIf="results$.length === 0 && searchTerm.getValue().trim()">
-    <p>No results found</p>  
+    <p>No results found</p>
   </div>
 </div>
