@@ -213,8 +213,27 @@ export class CreationOperatorComponent implements OnInit {
 
   //Transforming Operator
   pluckOperator() {
-    of({ name: 'Alice' }, { name: 'Bob' })
-      .pipe(pluck('name')) //it extracts the specifiedd value of an object
+    let obj1 = {
+      details: {
+        name: 'Alice',
+        age: 21,
+      },
+    };
+
+    let obj2 = {
+      details: {
+        name: 'Bob',
+        age: 22,
+      },
+    };
+    of(obj1, obj2)
+      .pipe(pluck('details', 'name')) //it extracts the specified value of an object
+      .subscribe((value) => {
+        this.pluck$ += value + ' ';
+      });
+
+    of(obj1, obj2)
+      .pipe(pluck('details', 'age'))
       .subscribe((value) => {
         this.pluck$ += value + ' ';
       });
