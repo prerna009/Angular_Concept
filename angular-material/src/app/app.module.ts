@@ -22,7 +22,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
-import { MatRadioButton, MatRadioModule } from "@angular/material/radio";
+import { MatRadioModule } from "@angular/material/radio";
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatInputModule } from '@angular/material/input';
@@ -44,7 +44,8 @@ import { ListComponent } from './list/list.component';
 import { MenuComponent } from './menu/menu.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { UserTableComponent } from './user-table/user-table.component';
-
+import { MatTimepickerModule } from "@angular/material/timepicker";
+import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +60,8 @@ import { UserTableComponent } from './user-table/user-table.component';
     ListComponent,
     MenuComponent,
     ProgressBarComponent,
-    UserTableComponent
+    UserTableComponent,
+    DateTimePickerComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,7 +93,8 @@ import { UserTableComponent } from './user-table/user-table.component';
     MatProgressSpinnerModule,
     MatTabsModule,
     MatTreeModule,
-    MatTableModule
+    MatTableModule,
+    MatTimepickerModule,
   ],
   providers: [
     provideHttpClient(withFetch()),

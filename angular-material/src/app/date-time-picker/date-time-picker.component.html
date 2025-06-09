@@ -17,9 +17,8 @@
     <mat-datepicker #picker2></mat-datepicker>
 </mat-form-field>
 
-<mat-form-field>
-    <mat-label>Select Time</mat-label>
-    <input matInput [matTimepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-timepicker #picker></mat-timepicker>
-</mat-form-field>
+<!--Date range selection-->
+<mat-date-range-input>
+    <input matStartDate placeholder="Start Date">
+    <input matEndDate placeholder="End Date">
+</mat-date-range-input>

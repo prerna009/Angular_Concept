@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { first, map, Observable, startWith } from 'rxjs';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
