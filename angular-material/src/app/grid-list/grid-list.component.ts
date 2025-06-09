@@ -8,9 +8,10 @@ export interface Tile{
 }
 
 @Component({
-  selector: 'app-grid-list',
-  templateUrl: './grid-list.component.html',
-  styleUrl: './grid-list.component.css'
+    selector: 'app-grid-list',
+    templateUrl: './grid-list.component.html',
+    styleUrl: './grid-list.component.css',
+    standalone: false
 })
 
 

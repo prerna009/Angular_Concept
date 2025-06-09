@@ -28,9 +28,10 @@ const data:User[]=[
 ]
 
 @Component({
-  selector: 'app-user-table',
-  templateUrl: './user-table.component.html',
-  styleUrl: './user-table.component.css'
+    selector: 'app-user-table',
+    templateUrl: './user-table.component.html',
+    styleUrl: './user-table.component.css',
+    standalone: false
 })
 export class UserTableComponent implements AfterViewInit{
   users: string[] = ['no', 'name', 'age', 'gender'];

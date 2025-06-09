@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-button',
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+    selector: 'app-button',
+    templateUrl: './button.component.html',
+    styleUrl: './button.component.css',
+    standalone: false
 })
 export class ButtonComponent {
   selectedValue='';

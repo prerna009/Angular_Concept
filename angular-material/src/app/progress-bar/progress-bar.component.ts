@@ -4,9 +4,10 @@ import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 
 @Component({
-  selector: 'app-progress-bar',
-  templateUrl: './progress-bar.component.html',
-  styleUrl: './progress-bar.component.css'
+    selector: 'app-progress-bar',
+    templateUrl: './progress-bar.component.html',
+    styleUrl: './progress-bar.component.css',
+    standalone: false
 })
 export class ProgressBarComponent {
 

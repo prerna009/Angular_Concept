@@ -1,0 +1,10 @@
+<div [formGroup]="toppings">
+    <h4>Select your toppings:</h4>
+    <mat-checkbox formControlName="pepperoni">Pepperoni</mat-checkbox>
+    <mat-checkbox formControlName="extracheese">Extra Cheese</mat-checkbox>
+    <mat-checkbox formControlName="mushroom">Mushroom</mat-checkbox>
+</div>
+<div [formGroup]="toppings">
+    <h4>You choose:</h4>
+    {{ toppings.value  | json }}
+</div>

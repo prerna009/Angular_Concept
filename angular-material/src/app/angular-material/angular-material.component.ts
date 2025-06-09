@@ -3,9 +3,10 @@ import { FormControl } from '@angular/forms';
 import { map, Observable, startWith } from 'rxjs';
 
 @Component({
-  selector: 'app-angular-material',
-  templateUrl: './angular-material.component.html',
-  styleUrl: './angular-material.component.css'
+    selector: 'app-angular-material',
+    templateUrl: './angular-material.component.html',
+    styleUrl: './angular-material.component.css',
+    standalone: false
 })
 export class AngularMaterialComponent {
   fruitControl= new FormControl();

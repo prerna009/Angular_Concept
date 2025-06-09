@@ -2,9 +2,10 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef, NgZone } from '@angula
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-a',
-  templateUrl: './a.component.html',
-  styleUrls: ['./a.component.css']  
+    selector: 'app-a',
+    templateUrl: './a.component.html',
+    styleUrls: ['./a.component.css'],
+    standalone: false
 })
 export class AComponent implements OnInit, OnDestroy {
   message: string = 'Waiting for the timer to start...';
