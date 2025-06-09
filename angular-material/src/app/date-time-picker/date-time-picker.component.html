@@ -15,10 +15,29 @@
         <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
     </mat-datepicker-toggle>
     <mat-datepicker #picker2></mat-datepicker>
-</mat-form-field>
+</mat-form-field><br><br>
 
 <!--Date range selection-->
-<mat-date-range-input>
-    <input matStartDate placeholder="Start Date">
-    <input matEndDate placeholder="End Date">
-</mat-date-range-input>
+<mat-form-field>
+    <mat-date-range-input [rangePicker]="rangePicker">
+        <input matStartDate placeholder="Start Date">
+        <input matEndDate placeholder="End Date">
+    </mat-date-range-input>
+    <mat-datepicker-toggle matIconSuffix [for]="rangePicker"></mat-datepicker-toggle>
+    <mat-date-range-picker #rangePicker></mat-date-range-picker>
+</mat-form-field>
+
+<!--mat-calendar-->
+
+<mat-card style="width: 200px;">
+    <mat-calendar [(selected)]="selected"></mat-calendar>
+</mat-card>
+<p>Selected Date: {{ selected() }}</p>
+
+<!--Time picker-->
+<mat-form-field>
+  <mat-label>Pick a time</mat-label>
+  <input matInput [matTimepicker]="timepicker">
+  <mat-timepicker-toggle matIconSuffix [for]="timepicker"/>
+  <mat-timepicker #timepicker/>
+</mat-form-field>
