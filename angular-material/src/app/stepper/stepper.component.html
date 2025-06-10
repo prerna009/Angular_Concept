@@ -1,0 +1,39 @@
+<button mat-raised-button style="color: #3f51b5;" id="toggle-linear" (click)="isLinear = !isLinear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>
+<!--In orientation we can vertical and horizanta the mat stepper
+orientation="vertical" -->
+<mat-stepper #stepper [linear]="isLinear" labelPosition="bottom"> 
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Fill out your name</ng-template>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Last name, First name" formControlName="firstCtrl">
+            </mat-form-field>
+            <div>
+                <button mat-raised-button style="color: #3f51b5;"  matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out the address">
+        <form [formGroup]="secondFormGroup">
+            <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl">
+            </mat-form-field>
+            <div>
+                <button mat-raised-button style="color: #3f51b5;"  matStepperPrevious>Back</button>
+                <button mat-raised-button style="color: #3f51b5;" matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        <p>You are now done.</p>
+        <div>
+            <button mat-raised-button style="color: #3f51b5;" matStepperPrevious>Back</button>
+            <button mat-raised-button style="color: #3f51b5;" (click)="stepper.reset()">Reset</button>
+        </div>
+    </mat-step>
+</mat-stepper>

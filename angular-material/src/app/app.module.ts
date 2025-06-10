@@ -46,6 +46,9 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { UserTableComponent } from './user-table/user-table.component';
 import { MatTimepickerModule } from "@angular/material/timepicker";
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
+import { StepperComponent } from './stepper/stepper.component';
+import { MatStepperModule } from "@angular/material/stepper";
+import { TreeComponent } from './tree/tree.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +65,8 @@ import { DateTimePickerComponent } from './date-time-picker/date-time-picker.com
     ProgressBarComponent,
     UserTableComponent,
     DateTimePickerComponent,
+    StepperComponent,
+    TreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +100,8 @@ import { DateTimePickerComponent } from './date-time-picker/date-time-picker.com
     MatTreeModule,
     MatTableModule,
     MatTimepickerModule,
+    MatStepperModule,
+    MatTreeModule
   ],
   providers: [
     provideHttpClient(withFetch()),
