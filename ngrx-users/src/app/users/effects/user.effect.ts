@@ -20,4 +20,40 @@ export class UserEffect {
       )
     )
   );
+
+  addUser$ = createEffect(() => 
+    this.actions$.pipe(
+      ofType(UserActions.addUser),
+      switchMap(({user}) => 
+        this.userService.addUser(user).pipe(
+          map((newUser) => UserActions.addUserSuccess({ user: newUser })),
+          catchError((error) => of(UserActions.addUserFailure({ error })))
+        )
+      )
+    )
+  );
+
+  updateUser$ = createEffect(() => 
+    this.actions$.pipe(
+      ofType(UserActions.updateUser),
+      switchMap(({user}) => 
+        this.userService.updateUser(user).pipe(
+          map((updatedUser) => UserActions.updateUserSuccess({ user: updatedUser })),
+          catchError((error) => of(UserActions.updateUserFailure({ error })))
+        )
+      )
+    )
+  );
+
+  deleteUser$ = createEffect(() => 
+    this.actions$.pipe(
+      ofType(UserActions.deleteUser),
+      switchMap(({id}) => 
+        this.userService.deleteUser(id).pipe(
+          map(() => UserActions.deleteUserSuccess({ id })),
+          catchError((error) => of(UserActions.deleteUserFailure({ error })))
+        )
+      )
+    )
+  );
 }

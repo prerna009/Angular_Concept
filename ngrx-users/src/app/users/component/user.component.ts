@@ -3,26 +3,57 @@ import { Observable } from 'rxjs';
 import { User } from '../modal/user';
 import { Store } from '@ngrx/store';
 import { selectAllUsers, selectLoading } from '../selectors/user.selector';
-import * as UserActions from "../actions/user.action";
+import * as UserActions from '../actions/user.action';
 import { CommonModule } from '@angular/common';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
 })
-export class UserComponent implements OnInit{
+export class UserComponent implements OnInit {
   users$: Observable<User[]>;
   loading$: Observable<boolean>;
+  userForm: FormGroup;
 
-  constructor(private store: Store) {
+  constructor(private store: Store, private fb: FormBuilder) {
     this.users$ = this.store.select(selectAllUsers);
     this.loading$ = this.store.select(selectLoading);
+
+    this.userForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+    });
   }
-  
+
   ngOnInit(): void {
     this.store.dispatch(UserActions.loadUsers());
+  }
+
+  editUser(user: any) {
+    this.userForm.patchValue(user);
+  }
+
+  deleteUser(id: number) {
+    this.store.dispatch(UserActions.deleteUser({ id }));
+  }
+
+  onSubmit() {
+    const user = this.userForm.value;
+
+    if (user.id) {
+      this.store.dispatch(UserActions.updateUser({ user }));
+    } else {
+      const { ...newUser } = user;
+      this.store.dispatch(UserActions.addUser({ user: newUser }));
+    }
   }
 }
