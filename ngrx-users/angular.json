@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngrx-user-example": {
+    "ngrx-users": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ngrx-user-example",
+            "outputPath": "dist/ngrx-users",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -74,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ngrx-user-example:build:production"
+              "buildTarget": "ngrx-users:build:production"
             },
             "development": {
-              "buildTarget": "ngrx-user-example:build:development"
+              "buildTarget": "ngrx-users:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -107,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "db50c61a-ab96-4c2f-8e9b-24632fd9ca61"
   }
 }
