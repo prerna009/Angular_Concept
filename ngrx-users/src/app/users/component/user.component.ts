@@ -4,9 +4,12 @@ import { User } from '../modal/user';
 import { Store } from '@ngrx/store';
 import { selectAllUsers, selectLoading } from '../selectors/user.selector';
 import * as UserActions from "../actions/user.action";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-user',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
@@ -20,7 +23,6 @@ export class UserComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    console.log("Dispatching loadUsers...");
     this.store.dispatch(UserActions.loadUsers());
   }
 }

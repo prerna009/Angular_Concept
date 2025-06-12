@@ -1,8 +1,6 @@
-<ng-container *ngIf="users$ | async as users">
-  <div *ngIf="users.length === 0">No users found.</div>
-  <ul *ngIf="users.length > 0">
-    <li *ngFor="let user of users">
-      {{ user.name }}
-    </li>
-  </ul>
-</ng-container>
+<div *ngIf="loading$ | async">Loading...</div>
+<ul>
+  <li *ngFor="let user of users$ | async">
+    {{ user.name }}
+  </li>
+</ul>
