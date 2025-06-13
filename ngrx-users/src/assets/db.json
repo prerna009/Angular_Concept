@@ -1,9 +1,19 @@
 {
   "users": [
     {
-      "id": "2e2d",
-      "name": "Prerna Gupta",
-      "email": "prernag048@gmail.com"
+      "id": 2,
+      "name": "Sumeet Gupta",
+      "email": "sumeet21@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Sandhaya Gupta",
+      "email": "sandy@gmail.com"
+    },
+    {
+      "id": 4,
+      "name": "Priyanka Mourya",
+      "email": "priyankamourya112@gmail.com"
     }
   ]
 }

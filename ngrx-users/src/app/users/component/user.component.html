@@ -9,25 +9,25 @@
                 <div>
                     <h6>{{ user.name }}</h6>
                     <p>{{ user.email }}</p>
-                    <button (click)="editUser(user)" class="update-btn">Update User</button>
-                    <button (click)="deleteUser(user.id)" class="delete-btn">Delete User</button>
+                    <button (click)="editUser(user)" class="btn btn-primary">Update User</button>&nbsp;
+                    <button (click)="deleteUser(user.id)" class="btn btn-danger">Delete User</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="container">
-        <h5>{{ userForm.get('id')?.value ? 'Update User' : 'Add New User' }}</h5>
+        <h3>{{ selectedUserId ? 'Update User' : 'Add New User' }}</h3>
         <form [formGroup]="userForm" class="form-container">
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" id="name" formControlName="name" class="form-control" required>
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label for="email" class="form-label">Email ID</label>
                 <input type="email" id="email" formControlName="email" class="form-control" required>
             </div>
-            <button type="submit" class="mt-3" [disabled]="userForm.invalid" (click)="onSubmit()">
-                {{ userForm.get('id')?.value ? 'Update User' : 'Add User' }}
+            <button type="submit" class="mt-4 btn btn-primary" [disabled]="userForm.invalid" (click)="onSubmit()">
+                {{ selectedUserId ? 'Update User' : 'Add User' }}
             </button>
         </form>
     </div>

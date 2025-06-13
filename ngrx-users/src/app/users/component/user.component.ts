@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
   users$: Observable<User[]>;
   loading$: Observable<boolean>;
   userForm: FormGroup;
+  selectedUserId: any;
 
   constructor(private store: Store, private fb: FormBuilder) {
     this.users$ = this.store.select(selectAllUsers);
@@ -39,7 +40,11 @@ export class UserComponent implements OnInit {
   }
 
   editUser(user: any) {
-    this.userForm.patchValue(user);
+    this.userForm.patchValue({
+      name: user.name,
+      email: user.email,
+    });
+    this.selectedUserId = user.id;
   }
 
   deleteUser(id: number) {
@@ -49,11 +54,14 @@ export class UserComponent implements OnInit {
   onSubmit() {
     const user = this.userForm.value;
 
-    if (user.id) {
-      this.store.dispatch(UserActions.updateUser({ user }));
+    if (this.selectedUserId) {
+      const updatedUser: User = {
+        id: this.selectedUserId,
+        ...user,
+      };
+      this.store.dispatch(UserActions.updateUser({ user: updatedUser }));
     } else {
-      const { ...newUser } = user;
-      this.store.dispatch(UserActions.addUser({ user: newUser }));
+      this.store.dispatch(UserActions.addUser({ user }));
     }
   }
 }
