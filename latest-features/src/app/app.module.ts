@@ -15,6 +15,7 @@ import { ContentChildComponent } from './content-child/content-child.component';
 import { ContentChildrenComponent } from './content-children/content-children.component';
 import { SkeletonComponent } from './skeleton/skeleton.component';
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { CountComponent } from './signal/count/count.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
     GroceryListComponent,
     ContentChildComponent,
     ContentChildrenComponent,
-    SkeletonComponent
+    SkeletonComponent,
+    CountComponent
   ],
   imports: [
     BrowserModule,
