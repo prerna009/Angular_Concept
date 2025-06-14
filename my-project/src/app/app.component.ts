@@ -11,6 +11,8 @@ import { MessagesService } from './service/messages.service';
 import { ChildComponent } from './component/child/child.component';
 import { ControlFlowComponent } from './component/control-flow/control-flow.component';
 import { AnimationsComponent } from './component/animations/animations.component';
+import { TransitionTriggerComponent } from './component/transition-trigger/transition-trigger.component';
+import { IncrementDecrementComponent } from './component/increment-decrement/increment-decrement.component';
 
 @Component({
   selector: 'app-root',
@@ -27,6 +29,8 @@ import { AnimationsComponent } from './component/animations/animations.component
     ChildComponent,
     ControlFlowComponent,
     AnimationsComponent,
+    TransitionTriggerComponent,
+    IncrementDecrementComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

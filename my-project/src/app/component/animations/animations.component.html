@@ -1,5 +1,6 @@
+<h3 style="text-align: center;">Toggle Example</h3>
+
 <div class="animation-container">
-    <h6>Open/ Closed Container</h6>
     <button mat-raised-button class="m-3" type="button" (click)="toggle()">Toggle Open/Close</button>
     <div [@openClose]="isOpen ? 'open' : 'closed'" class="box">
         <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
@@ -7,7 +8,6 @@
 </div>
 
 <div class="animation-container">
-    <h6>Active/Inactive Status Container</h6>
     <button mat-raised-button class="m-3" type="button" (click)="activeToggle()">Active/Inactive Toggle</button>
     <div [@slideStatus]="status" class="box">
         <p>Status: {{ status }}!</p>
