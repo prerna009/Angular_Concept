@@ -6,39 +6,50 @@ import { CustomDirectivesComponent } from './component/custom-directives/custom-
 import { PipesComponent } from './component/pipes/pipes.component';
 import { EmpInfoComponent } from './component/emp-info/emp-info.component';
 import { BindingExampleComponent } from './component/binding-example/binding-example.component';
-import { FormsModule } from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { MessagesService } from './service/messages.service';
 import { ChildComponent } from './component/child/child.component';
 import { ControlFlowComponent } from './component/control-flow/control-flow.component';
+import { AnimationsComponent } from './component/animations/animations.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,StructuralExampleComponent,AttributeDirectivesComponent,CustomDirectivesComponent,PipesComponent,EmpInfoComponent,BindingExampleComponent,FormsModule,ChildComponent,ControlFlowComponent],
+  imports: [
+    CommonModule,
+    StructuralExampleComponent,
+    AttributeDirectivesComponent,
+    CustomDirectivesComponent,
+    PipesComponent,
+    EmpInfoComponent,
+    BindingExampleComponent,
+    FormsModule,
+    ChildComponent,
+    ControlFlowComponent,
+    AnimationsComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'my-project';
-  num:number=56.88;
+  num: number = 56.88;
 
-  counter:number=0;
-  incrementCounter(){
+  counter: number = 0;
+  incrementCounter() {
     this.counter++;
   }
 
-  messages:string[]=[];
-  constructor(private messageService:MessagesService){
-    this.messages=messageService.getMessages();
+  messages: string[] = [];
+  constructor(private messageService: MessagesService) {
+    this.messages = this.messageService.getMessages();
   }
 
-  tasks:string[]=['Task 1','Task 2','Task 3'];
+  tasks: string[] = ['Task 1', 'Task 2', 'Task 3'];
 
-  deleteTask(task:string){
-    this.tasks=this.tasks.filter((t)=>t!==task);
+  deleteTask(task: string) {
+    this.tasks = this.tasks.filter((t) => t !== task);
   }
 
-  underlineEvent(){
-    
-  }
+  underlineEvent() {}
 }
