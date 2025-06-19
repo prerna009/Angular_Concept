@@ -1,0 +1,16 @@
+<h2>Products</h2>
+<ul>
+  <li *ngFor="let p of products$ | async">
+    <h4>{{ p.name }} - ₹{{ p.price }}</h4>
+    <button (click)="edit(p)">Edit</button>
+    <button (click)="deleteProduct(p.id)">Delete</button>
+  </li>
+</ul>
+
+<div>
+  <input [(ngModel)]="productForm.name" placeholder="Product Name" />
+  <input [(ngModel)]="productForm.price" placeholder="Price" type="number" />
+  <button (click)="productForm.id ? updateProduct() : addNewProduct()">
+    {{ productForm.id ? 'Update' : 'Add' }}
+  </button>
+</div>
