@@ -9,3 +9,15 @@
 <button appToggle style="padding: 10px;">
     Click me to toggle border color!
 </button>
+
+<!---Angular Lifecycle Counter Example-->
+<div style="text-align: center;">
+    <h1>Angular Lifecycle Hooks Example</h1>
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">Decrement</button>
+    <button (click)="add()">Add</button>
+    <app-lifecycle-counter-example *ngIf="isVisible" [myCounter]="counter" [secondValue]="secondValue" [numbers]="numbers">
+        Hello this is coming from parent component content projection
+    </app-lifecycle-counter-example>
+    <button (click)="setVisibility()">show/hide</button>
+</div>

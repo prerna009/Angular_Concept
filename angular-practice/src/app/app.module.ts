@@ -8,6 +8,7 @@ import { PipeComponent } from './component/pipe/pipe.component';
 import { ViewComponent } from './component/view/view.component';
 import { HighlightDirective } from './directive/highlight.directive';
 import { ToggleDirective } from './directive/toggle.directive';
+import { LifecycleCounterExampleComponent } from './component/lifecycle-counter-example/lifecycle-counter-example.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ToggleDirective } from './directive/toggle.directive';
     PipeComponent,
     ViewComponent,
     HighlightDirective,
-    ToggleDirective
+    ToggleDirective,
+    LifecycleCounterExampleComponent
   ],
   imports: [
     BrowserModule,
