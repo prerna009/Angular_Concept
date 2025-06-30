@@ -1,0 +1,11 @@
+<div>
+    <h2>User Data</h2>
+    <ul *ngFor="let user of userData">
+        <li>
+            <h3>{{ user.name }} - {{ user.email }}</h3>
+            <h5>{{ user.company.name }}</h5>
+            <p>{{ user.company.catchPhrase }}</p>
+            <p>{{ user.company.bs }}</p>
+        </li>
+    </ul>
+</div>
