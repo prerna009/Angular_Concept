@@ -8,3 +8,39 @@
 <input type="text" appHighlight />
 
 <p>Bold and Underline</p>
+
+<!--Usage of sanitizer directive in reactive form-->
+<h2>Reactive Form</h2>
+<form [formGroup]="userForm">
+    <!--Full Name field-->
+    <input type="text" formControlName="fullName" placeholder="Enter your name"
+        [appInputSanitizer]="{ trim: false, capitalize: true }" />
+    <br>
+
+    <!--Age field-->
+    <input type="text" formControlName="age" placeholder="Enter your age"
+        [appInputSanitizer]="{ trim: true, onlyTwoDigitNumbers: true }" />
+
+    <!--Display Value-->
+    <p>Reactive Form Value : {{ reactiveValue }}</p>
+
+    <button type="button" (click)="onSubmitReactiveForm()">Submit</button>
+</form>
+
+<hr>
+
+<!--Usage of sanitizer directive in template form-->
+<h2>Template Form</h2>
+<form #templateForm="ngForm">
+    <!--Name Field-->
+    <input type="text" name="name" [(ngModel)]="user.name" placeholder="Enter your name"
+        [appInputSanitizer]="{ trim: false, allowAplhanumericOnly: true }" />
+
+    <!--Age Fielc-->
+    <input type="text" name="age" [(ngModel)]="user.age" placeholder="Enter your age"
+        [appInputSanitizer]="{ trim: true, onlyTwoDigitNumbers: true }" />
+    
+    <!--Display Value-->
+    <p>Template Form Value : {{ templateValue }}</p>
+    <button type="button" (click)="onSubmitTemplateForm(templateForm)">Submit</button>
+</form>
