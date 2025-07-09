@@ -21,7 +21,7 @@ export class SmartModelFilterPipe implements PipeTransform {
       filtered = items.filter((item) =>
         fields.some((field) => {
           const value = this.deepFilter(item, field);
-          return value?.toString().toLowercase().includes(search.toLowerCase());
+          return value?.toString().toLowerCase().includes(search.toLowerCase());
         })
       );
     }

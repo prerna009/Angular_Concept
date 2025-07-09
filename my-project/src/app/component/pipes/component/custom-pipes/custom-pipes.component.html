@@ -1,33 +1,34 @@
-<h1>Custom Pipes</h1>
+<h5 class="m-2">Custom Pipes</h5>
 <!-- Reverse Pipe -->
-<div>
-    <h3>Using ReversePipe</h3>
+<div class="m-2">
+    <h6>Using ReversePipe</h6>
     <p>Reverse string : {{word | reverse}}</p>
 </div>
 
 <!-- Filter By Length -->
-<div>
-    <h3>Using FilterByLength Pipe</h3>
+<div class="m-2">
+    <h6>Using FilterByLength Pipe</h6>
     <ul>
         <li *ngFor="let value of values | filterByLength:4">{{value}}</li>
     </ul>
 </div>
+
 <!-- Custom Pipe: Truncate the string when it exceeds 20 character. -->
-<div>
-    <h3>Using Characters Pipe</h3>
+<div class="m-2">
+    <h6>Using Characters Pipe</h6>
     <p>{{character | characters}}</p>
 </div>
 
 <!-- Append pipe -->
-<div>
+<div class="m-2">
     <p>Append Text : {{title | append : ' World' | uppercase}}</p>
 </div>
 
 <!-- Smart Model Filter -->
 <div class="m-2">
-    <input type="text" [(ngModel)]="searchText" placeholder="Search users by name, email, city" />
+    <input class="w-50 px-2 py-1" type="text" [(ngModel)]="searchText" placeholder="Search users by name, email, city" />
     <ng-container
-        *ngIf="(users | smartModelFilter: searchText: ['name','email','address.city']: 'age': 'asc') as filteredUsers">
+        *ngIf="(users | smartModelFilter: searchText: ['name', 'email', 'address.city'] : 'age': 'asc') as filteredUsers">
         <ul *ngIf="filteredUsers.length > 0; else noUser">
             <li *ngFor="let user of filteredUsers">
                 <h6>{{ user.name }} - {{ user.age }} - [{{ user.email }}]</h6>
@@ -36,6 +37,6 @@
         </ul>
     </ng-container>
     <ng-template #noUser>
-        <p>No users found.</p>
+        <p style="padding-left: 20%;">No users found.</p>
     </ng-template>
 </div>

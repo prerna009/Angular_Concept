@@ -58,14 +58,14 @@ export class PipesComponent {
   constructor() {
     this.squared.subscribe((x) => console.log('Squared of numbers :' + x));
     this.evenNumbers.subscribe((x) => console.log('Even Numbers : ' + x));
-    this.merged.subscribe((x) => console.log('Merged the numbers : ' + x));
+    // this.merged.subscribe((x) => console.log('Merged the numbers : ' + x));
   }
 
   evenNumbers = of(1, 2, 3, 4, 5).pipe(filter((x) => x % 2 === 0));
 
-  num1 = of(1, 2, 3);
-  num2 = of(4, 5, 6);
-  merged = merge(this.num1, this.num2);
+  // num1 = of(1, 2, 3);
+  // num2 = of(4, 5, 6);
+  // merged = merge(this.num1, this.num2);
 
   numbers1 = of(1, 2, 3).subscribe({
     next: (value) => console.log(value),
