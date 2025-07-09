@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { StructuralExampleComponent } from './component/structural-example/structural-example.component';
 import { AttributeDirectivesComponent } from './component/attribute-directives/attribute-directives.component';
 import { CustomDirectivesComponent } from './component/custom-directives/custom-directives.component';
-import { PipesComponent } from './component/pipes/pipes.component';
+import { PipesComponent } from './component/pipes/component/pipes/pipes.component';
 import { EmpInfoComponent } from './component/emp-info/emp-info.component';
 import { BindingExampleComponent } from './component/binding-example/binding-example.component';
 import { FormsModule } from '@angular/forms';
