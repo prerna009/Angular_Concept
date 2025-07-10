@@ -1,0 +1,22 @@
+<mat-form-field class="w-100">
+  <mat-label>Favorite Fruits</mat-label>
+  <mat-chip-grid #chipGrid aria-label="Enter fruits">
+    @for (fruit of fruits(); track fruit) {
+      <mat-chip-row
+        (removed)="remove(fruit)"
+        [editable]="true"
+        (edited)="edit(fruit, $event)"
+      >    
+        {{fruit.name}}
+        <mat-icon matChipRemove>cancel</mat-icon>
+      </mat-chip-row>
+    }
+    <input
+      placeholder="New fruit..."
+      [matChipInputFor]="chipGrid"
+      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+      [matChipInputAddOnBlur]="addOnBlur"
+      (matChipInputTokenEnd)="add($event)"
+    />
+  </mat-chip-grid>
+</mat-form-field>

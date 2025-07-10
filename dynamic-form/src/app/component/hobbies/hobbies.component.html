@@ -1,0 +1,13 @@
+<mat-form-field class="w-100">
+    <mat-label>Favourite Hobbies</mat-label>
+    <mat-chip-grid #matChipGrid>
+        @for(hobby of hobbies(); track hobby) {
+            <mat-chip-row [editable]="true" (edited)="editHobbies(hobby, $event)" (removed)="removeHobbies(hobby)">
+                {{ hobby.type }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip-row>
+        }
+
+        <input placeholder="New Hobbies..." [matChipInputFor]="matChipGrid" [matChipInputSeparatorKeyCodes]="separatorKeyCodes" (matChipInputTokenEnd)="addHobbies($event)"/>
+    </mat-chip-grid>
+</mat-form-field>

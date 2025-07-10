@@ -1,0 +1,14 @@
+<form [formGroup]="skillForm">
+    <mat-form-field class="w-100">
+        <mat-label>Favourite Skills</mat-label>
+        <mat-chip-grid #matChipGrid aria-label="Enter skills">
+            <mat-chip-row *ngFor="let skill of skills.controls; let i = index" [editable]="true" (edited)="editSkill(i, $event)" (removed)="removeSkill(i)">
+                {{ skill.value }}
+                <mat-icon matChipRemove>cancel</mat-icon>
+            </mat-chip-row>
+            <input [matChipInputFor]="matChipGrid" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="addSkill($event)" placeholder="New skills...">
+        </mat-chip-grid>
+        
+    </mat-form-field>
+</form>
