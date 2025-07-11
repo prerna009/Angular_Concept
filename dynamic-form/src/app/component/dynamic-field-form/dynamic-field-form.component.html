@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>{{ action === 'edit' ? 'Edit Field' : 'Add Field' }}</h2>
+
+<form [formGroup]="dynamicFieldForm">
+  <mat-dialog-content>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Label</mat-label>
+      <input matInput formControlName="label" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Type</mat-label>
+      <input matInput formControlName="type" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Required</mat-label>
+      <input matInput formControlName="required" />
+    </mat-form-field>
+
+    <div formArrayName="options" class="option-container">
+      <div *ngFor="let option of options.controls; let i = index" [formGroupName]="i" class="option-row">
+        <mat-form-field appearance="fill" class="w-75">
+          <mat-label>Option Value</mat-label>
+          <input matInput formControlName="Value" />
+        </mat-form-field>
+
+        <button mat-icon-button color="warn" type="button" (click)="removeOption(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <button mat-button color="primary" type="button" (click)="addOption()">
+      + Add Option
+    </button>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="accent" type="submit" (click)="submit()">
+      {{ action === 'edit' ? 'Update' : 'Add' }}
+    </button>
+  </mat-dialog-actions>
+</form>

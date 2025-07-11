@@ -1,0 +1,15 @@
+<button mat-raised-button color="primary" (click)="openDialog('add')">Add Field</button>
+
+<table>
+  <tr *ngFor="let field of fields">
+    <td>{{ field.label }}</td>
+    <td>{{ field.type }}</td>
+    <td>
+      <button mat-button (click)="openDialog('edit', field.id)">Edit</button>
+    </td>
+  </tr>
+</table>
+
+
+<!-- Child form component -->
+<app-dynamic-field-form [action]="selectedAction" [fieldId]="selectedFieldId"></app-dynamic-field-form>

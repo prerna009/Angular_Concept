@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "label": "Name",
+      "type": "text",
+      "required": "true",
+      "options": [
+        {
+          "Id": 1,
+          "Value": "opt 1"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "label": "Mobile No",
+      "type": "Number",
+      "required": false,
+      "options": [
+        {
+          "Id": 1,
+          "Value": "opt 1"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}
