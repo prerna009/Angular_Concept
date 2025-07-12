@@ -5,7 +5,6 @@ import {
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { FieldService } from '../../service/field.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -16,6 +15,8 @@ import {
   MAT_DIALOG_DATA,
   MatDialogModule,
 } from '@angular/material/dialog';
+import { MatRadioModule } from "@angular/material/radio";
+import { FieldService } from '../../../service/field.service';
 
 @Component({
   selector: 'app-dynamic-field-form',
@@ -28,6 +29,7 @@ import {
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+    MatRadioModule
   ],
   templateUrl: './dynamic-field-form.component.html',
   styleUrl: './dynamic-field-form.component.css',
@@ -40,7 +42,7 @@ export class DynamicFieldFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private fieldService: FieldService,
-    public dialogRef: MatDialogRef<DynamicFieldFormComponent>,
+    private dialogRef: MatDialogRef<DynamicFieldFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.action = data?.action || 'add';
@@ -93,8 +95,14 @@ export class DynamicFieldFormComponent implements OnInit {
   }
 
   buildOptions(): any[] {
-    return this.options.controls.map((ctrl, i) => ({
-      Id: this.action === 'add' ? i + 1 : ctrl.value.Id,
+    let maxId = 0;
+    this.options.controls.forEach((ctrl) => {
+      if (ctrl.value.Id && ctrl.value.Id > maxId) {
+        maxId = ctrl.value.Id;
+      }
+    });
+    return this.options.controls.map((ctrl) => ({
+      Id: ctrl.value.Id ? ctrl.value.Id : ++maxId,
       Value: ctrl.value.Value,
     }));
   }
@@ -116,14 +124,14 @@ export class DynamicFieldFormComponent implements OnInit {
       this.fieldService
         .updateDynamicField(this.fieldId, params)
         .subscribe(() => {
-          this.dialogRef.close('refresh');
+          this.dialogRef.close(true);
         });
     }
   }
 
   onCancel() {
     if (this.dialogRef) {
-      this.dialogRef.close();
+      this.dialogRef.close(false);
     }
   }
 }

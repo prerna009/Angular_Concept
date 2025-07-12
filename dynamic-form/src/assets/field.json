@@ -1,20 +1,8 @@
 {
   "fields": [
     {
-      "label": "Name",
-      "type": "text",
-      "required": "true",
-      "options": [
-        {
-          "Id": 1,
-          "Value": "opt 1"
-        }
-      ],
-      "id": 1
-    },
-    {
-      "label": "Mobile No",
-      "type": "Number",
+      "label": "Email ID",
+      "type": "Text",
       "required": false,
       "options": [
         {
@@ -22,7 +10,30 @@
           "Value": "opt 1"
         }
       ],
-      "id": 2
+      "id": 3
+    },
+    {
+      "label": "Name",
+      "type": "Text",
+      "required": "true",
+      "options": [],
+      "id": 4
+    },
+    {
+      "label": "Mobile No",
+      "type": "Number",
+      "required": "true",
+      "options": [
+        {
+          "Id": 1,
+          "Value": "+91"
+        },
+        {
+          "Id": 2,
+          "Value": "+12"
+        }
+      ],
+      "id": 5
     }
   ]
 }

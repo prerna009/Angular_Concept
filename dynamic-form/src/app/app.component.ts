@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FruitsComponent } from './component/fruits/fruits.component';
 import { SkillsComponent } from './component/skills/skills.component';
 import { HobbiesComponent } from './component/hobbies/hobbies.component';
-import { DynamicFieldListComponent } from './component/dynamic-field-list/dynamic-field-list.component';
+import { DynamicFieldListComponent } from './component/fields/dynamic-field-list/dynamic-field-list.component';
 
 @Component({
   selector: 'app-root',

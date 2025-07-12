@@ -2,26 +2,28 @@
 
 <form [formGroup]="dynamicFieldForm">
   <mat-dialog-content>
-
-    <mat-form-field appearance="fill" class="w-100">
+    <mat-form-field class="w-100">
       <mat-label>Label</mat-label>
       <input matInput formControlName="label" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="w-100">
+    <mat-form-field class="w-100">
       <mat-label>Type</mat-label>
       <input matInput formControlName="type" />
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="w-100">
-      <mat-label>Required</mat-label>
-      <input matInput formControlName="required" />
-    </mat-form-field>
+    <div class="mb-3">
+      <label class="fw-bold p-2">Required:</label>
+      <mat-radio-group formControlName="required">
+        <mat-radio-button value="true">Yes</mat-radio-button>
+        <mat-radio-button value="false">No</mat-radio-button>
+      </mat-radio-group>
+    </div>
 
     <div formArrayName="options" class="option-container">
       <div *ngFor="let option of options.controls; let i = index" [formGroupName]="i" class="option-row">
         <mat-form-field appearance="fill" class="w-75">
-          <mat-label>Option Value</mat-label>
+          <mat-label>Option Value {{ i + 1 }}</mat-label>
           <input matInput formControlName="Value" />
         </mat-form-field>
 
@@ -31,15 +33,15 @@
       </div>
     </div>
 
-    <button mat-button color="primary" type="button" (click)="addOption()">
+    <button mat-flat-button color="primary" type="button" (click)="addOption()">
       + Add Option
     </button>
 
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-raised-button color="accent" type="submit" (click)="submit()">
+    <button mat-raised-button (click)="onCancel()">Cancel</button>
+    <button mat-flat-button color="primary" type="submit" (click)="submit()">
       {{ action === 'edit' ? 'Update' : 'Add' }}
     </button>
   </mat-dialog-actions>
