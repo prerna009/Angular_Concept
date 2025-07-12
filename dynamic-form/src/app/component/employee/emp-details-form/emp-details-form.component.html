@@ -1,0 +1,91 @@
+<h2>
+    {{ action === 'add' ? 'Add Employee Form' : 'Edit Employee Form' }}
+</h2>
+
+<mat-dialog-content>
+    <form [formGroup]="empForm">
+        <!-- Name -->
+        <mat-form-field class="mat-form-field-fluid">
+            <mat-label>Employee Name</mat-label>
+            <input matInput type="text" formControlName="name" />
+        </mat-form-field>
+
+        <!-- Email Id-->
+        <mat-form-field class="mat-form-field-fluid">
+            <mat-label>Email ID</mat-label>
+            <input matInput type="text" formControlName="emailID" />
+        </mat-form-field>
+
+        <!-- Mobile number -->
+        <mat-form-field class="mat-form-field-fluid">
+            <mat-label>Mobile Number</mat-label>
+            <input matInput type="number" formControlName="mobileNo" />
+        </mat-form-field>
+
+        <!-- Hobbies -->
+        <div formArrayName="hobbies" class="option-container">
+            <div *ngFor="let hobby of hobbies.controls; let i = index" [formGroupName]="i">
+                <mat-form-field appearance="fill" class="w-75">
+                    <mat-label>Hobby {{ i + 1 }}</mat-label>
+                    <input matInput formControlName="Value" />
+                </mat-form-field>
+
+                <button mat-icon-button color="warn" type="button" (click)="removeHobby(i)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <button mat-flat-button color="primary" type="button" (click)="addHobby()">
+            + Add Hobby
+        </button>
+
+        <!-- Skills -->
+        <div formArrayName="skills">
+            <div *ngFor="let skill of skills.controls; let i = index" [formGroupName]="i">
+                <mat-form-field appearance="fill" class="w-75">
+                    <mat-label>Skill {{ i + 1 }}</mat-label>
+                    <input matInput formControlName="Value" />
+                </mat-form-field>
+
+                <button mat-icon-button color="warn" type="button" (click)="removeSkill(i)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </div>
+        </div>
+
+        <button mat-flat-button color="primary" type="button" (click)="addSkill()">
+            + Add Skill
+        </button>
+
+        <!-- Address -->
+        <div formGroupName="address">
+            <mat-form-field class="mat-form-field-fluid">
+                <mat-label>Country</mat-label>
+                <input matInput formControlName="country" />
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field-fluid">
+                <mat-label>State</mat-label>
+                <input matInput formControlName="state" />
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field-fluid">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" />
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field-fluid">
+                <mat-label>Pincode</mat-label>
+                <input matInput type="number" formControlName="pincode" />
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="onCancel()" type="button">Cancel</button>
+    <button type="submit" (click)="submit()" mat-flat-button color="primary">
+        {{ action === 'add' ? 'Add' : 'Update'}}
+    </button>
+</mat-dialog-actions>

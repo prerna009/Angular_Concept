@@ -1,0 +1,60 @@
+{
+  "employees": [
+    {
+      "name": "Prerna Gupta",
+      "emailID": "prerna@gmail.com",
+      "mobileNo": 7676743783,
+      "hobbies": [
+        {
+          "hobbyId": 2,
+          "Value": "Dancing"
+        },
+        {
+          "hobbyId": 3,
+          "Value": "Swimming"
+        }
+      ],
+      "skills": [
+        {
+          "skillId": 1,
+          "Value": "Angular"
+        }
+      ],
+      "address": {
+        "country": "India",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "pincode": 400037
+      },
+      "id": 2
+    },
+    {
+      "name": "Sumeet",
+      "emailID": "sumeet@gmail.com",
+      "mobileNo": 877878348,
+      "hobbies": [
+        {
+          "hobbyId": 1,
+          "Value": "Drawing"
+        }
+      ],
+      "skills": [
+        {
+          "skillId": 1,
+          "Value": "JS"
+        },
+        {
+          "skillId": 2,
+          "Value": "React"
+        }
+      ],
+      "address": {
+        "country": "India",
+        "state": "Maharashtra",
+        "city": "Mumbai",
+        "pincode": 4378734
+      },
+      "id": 3
+    }
+  ]
+}
